@@ -3,7 +3,7 @@
 import { useMouseContext } from "@/context/MouseMoveContext";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
-import { twMerge } from "tailwind-merge";
+
 const Header = () => {
   const intro = ` The Web—Where Creativity Becomes My Playground `;
   const { values } = useMouseContext();
