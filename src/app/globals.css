@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body{
+  @apply bg-black p-2 text-white
+}
+
+.placeholder {
+@apply  bg-orange-400 w-[500px]  h-[500px] mb-12
+}
+
