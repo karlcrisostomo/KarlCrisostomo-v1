@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { CustomCursor } from ".";
-import { MouseProvider } from "@/context/MouseMoveContext";
+import LocomotiveScroll from "locomotive-scroll";
 
 const AppContainer = ({ children }) => {
   useEffect(() => {
