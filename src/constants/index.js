@@ -1,7 +1,15 @@
-export const contact = [
-  { title: "facebook", link: "/" },
-  { title: "instagram", link: "/" },
-  { title: "linkedin", link: "/" },
+export const links = [
+  { title: "About", link: "/" },
+  { title: "Projects", link: "/" },
+
+  { title: "Contact", link: "/" },
+];
+
+export const footerLinks = [
+  { title: "Facebook", Link: "/" },
+  { title: "Instagram", Link: "/" },
+  { title: "LinkedIn", Link: "/" },
+  { title: "Email", Link: "/" },
 ];
 
 export const aboutParagraphs = {

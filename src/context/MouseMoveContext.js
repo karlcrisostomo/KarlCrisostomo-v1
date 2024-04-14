@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useRef } from "react";
 
 const MouseMoveContext = createContext();
 
@@ -12,7 +12,7 @@ export const MouseProvider = ({ children }) => {
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
   const [hoveredSection, setHoveredSection] = useState("");
   const [isHovered, setHovered] = useState(false);
-
+  const menuRef = useRef(null);
   useEffect(() => {
     const updateMousePosition = (e) => {
       setMousePosition({
@@ -30,6 +30,7 @@ export const MouseProvider = ({ children }) => {
 
   const values = {
     mousePosition,
+    menuRef,
     isHovered,
     setHovered,
     hoveredSection,

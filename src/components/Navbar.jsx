@@ -5,16 +5,18 @@ import { useMouseContext } from "@/context/MouseMoveContext";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
-
+import { AnimatePresence, delay, motion } from "framer-motion";
+import { MenuButton, Nav } from ".";
+import menuState from "@/utils/menuState";
 const Logo = () => {
   return (
     <div className=" w-full ">
-      <Image src={"../logo.svg"} width={40} height={80} alt="logo" />
+      <Image src="/logo.svg" width={40} height={80} alt="logo" />
     </div>
   );
 };
 
-const Email = () => {
+const Email = ({ flag }) => {
   const email = "karlcrisostomo.dev@gmail.com";
 
   const handleEmailClick = () => {
@@ -22,8 +24,8 @@ const Email = () => {
   };
 
   return (
-    <div className=" w-full text-end    ">
-      <button onClick={handleEmailClick}>{email} </button>
+    <div className={flag ? "" : " text-end w-full"}>
+      <button onClick={handleEmailClick}>{flag ? "EMAIL" : `${email}`}</button>
     </div>
   );
 };
@@ -31,6 +33,61 @@ const Email = () => {
 const Navbar = () => {
   const [setBg, setBgChange] = useState(false);
   const { values } = useMouseContext();
+  const { isMobile, setMobile, setActive, isActive } = menuState();
+ 
+  const toggleMenu = () => setActive((prevState) => !prevState);
+
+  const variants = {
+    open: {
+      width: "450px",
+      height: "550px",
+      borderRadius: "20px",
+      top: "-20px",
+      right: "-20px",
+
+      transition: {
+        duration: 0.7,
+        delay: 0.2,
+        type: "tween",
+        ease: [0.33, 1, 0.68, 1],
+      },
+    },
+    closed: {
+      width: "100px",
+      height: "40px",
+      borderRadius: isMobile ? "0px" : "40px",
+      top: "0px",
+      right: "0px",
+      transition: {
+        duration: 0.7,
+
+        delay: 0.5,
+        ease: [0.5, 1, 0.68, 1],
+      },
+    },
+
+    breakpoint: {
+      width: "100%",
+      height: "100%",
+      top: "0px",
+      right: "0px",
+      borderRadius: "0",
+      transition: { duration: 0.7, ease: [0.33, 1, 0.68, 1] },
+    },
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) setMobile(true);
+      else setMobile(false);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   useEffect(() => {
     const handleScrollNav = () => {
@@ -45,34 +102,26 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={twMerge(
-        "  fixed left-0  w-full z-50  top-0 ",
-        setBg ? " bg-white/15 backdrop-blur-sm " : null
-      )}
-    >
+    <nav>
       <div
-        className="
-          flex justify-between  items-center container mx-auto "
+        className={twMerge(
+          " fixed z-50  w-full top-0 right-0 flex justify-end  md:top-[50px] md:right-[50px] md:w-auto md:h-auto "
+        )}
       >
-        <Logo />
-        <ul className=" flex justify-center gap-6 py-9 p-2 ">
-          {contact.map((item, idx) => (
-            <li
-              onMouseEnter={() => {
-                values.setHovered(true);
-              }}
-              onMouseLeave={() => {
-                values.setHovered(false);
-              }}
-              className=" cursor-pointer  "
-              key={idx}
-            >
-              <p>{item.title}</p>
-            </li>
-          ))}
-        </ul>
-        <Email />
+        {isActive && (
+          <div className=" bg-white/10  backdrop-blur-[3px]   fixed w-full h-full top-0 left-0" />
+        )}
+
+        <motion.div
+          ref={values.menuRef}
+          className=" bg-[#f5f7fa] relative   "
+          variants={variants}
+          animate={isActive ? (isMobile ? "breakpoint" : "open") : "closed"}
+          initial="closed"
+        >
+          <AnimatePresence>{isActive && <Nav />}</AnimatePresence>
+        </motion.div>
+        <MenuButton toggleMenu={toggleMenu} isActive={isActive} />
       </div>
     </nav>
   );

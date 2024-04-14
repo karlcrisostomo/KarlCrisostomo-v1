@@ -2,23 +2,25 @@
 
 import { useEffect } from "react";
 import { CustomCursor } from ".";
+import menuState from "@/utils/menuState";
 
 const AppContainer = ({ children }) => {
   useEffect(() => {
+    let smoothScroll; // Declare smoothScroll variable outside useEffect to make it accessible in cleanup function
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const smoothScroll = new LocomotiveScroll({
+      smoothScroll = new LocomotiveScroll({
         lenisOptions: {
-          duration: 2.1,
+          duration: 3.5,
         },
       });
     })();
-  }, []);
+  }, []); // Empty dependency array to run effect only once on mount
 
   return (
     <section className="">
       <CustomCursor />
-      <div className=" xl:max-w-[1024px]  mx-auto"> {children} </div>
+      <div className=" max-w-sm  p-4  sm:max-w-md md:max-w-lg lg:max-w-4xl  xl:max-w-[1372px]  mx-auto"> {children} </div>
     </section>
   );
 };

@@ -7,9 +7,10 @@ import { motion, useInView, useSpring } from "framer-motion";
 import { useMouseContext } from "@/context/MouseMoveContext";
 import { styled } from "styled-components";
 
-const StyledExperienceContainer = styled.div`
-  padding: 1em 0 1em 0;
-`;
+const StyledExperienceContainer = styled.div.attrs({
+  className: " py-[2em]",
+})``;
+// padding: 1em 0 1em 0;
 
 const Countdown = () => {
   const arr = [3, 2, 5, 4, 0, 6, 8, 1];
@@ -34,7 +35,7 @@ const Countdown = () => {
   return (
     <motion.div
       ref={ref}
-      className="   h-[500px] flex flex-col justify-center items-center "
+      className="  h-[500px] flex flex-col justify-center items-center "
       animate={{ y: [0, -20, 20, -20, 0] }}
       onAnimationComplete={() => {
         if (arr[currentIndex] === 0) {
@@ -59,11 +60,11 @@ const About = () => {
       onMouseEnter={() => values.setHoveredSection("About")}
       onMouseLeave={() => values.setHoveredSection("")}
     >
-      <div className=" flex justify-between gap-10 ">
+      <div className=" min-[0px]:flex-col flex  lg:flex-row justify-between gap-10 ">
         <div>
           {Object.values(aboutParagraphs).map((p, idx) => (
             <p
-              className=" tracking-wider leading-relaxed py-2  text-2xl"
+              className=" tracking-wider leading-relaxed py-2  text-2xl lg:text-3xl  lg:leading-snug"
               key={idx}
             >
               {p}
@@ -72,11 +73,11 @@ const About = () => {
         </div>
         <div className=" w-full">
           <StyledExperienceContainer>
-            <sub className=" text-gray-300 font-light sm:text-base">
-              /experience
-            </sub>
+            <span className=" text-gray-300 font-light sm:text-base">
+              Experience
+            </span>
 
-            {experiece.map((item ,idx) => (
+            {experiece.map((item, idx) => (
               <div key={idx} className="  font-medium">
                 <p>{item.company}</p>
                 <p>{item.date}</p>
@@ -86,7 +87,9 @@ const About = () => {
           </StyledExperienceContainer>
 
           <div>
-            <h1>Technology Stack</h1>
+            <span className="text-gray-300 font-light sm:text-base">
+              Technology Stack
+            </span>
 
             <ul className="    ">
               {techStack.map((item, idx) => (
@@ -101,8 +104,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      <Countdown />
     </div>
   );
 };
