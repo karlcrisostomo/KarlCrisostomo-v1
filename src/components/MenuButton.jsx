@@ -16,7 +16,7 @@ const PerspectiveText = () => {
 const MenuButton = ({ isActive, toggleMenu , isMobile }) => {
   return (
     <button
-      onClick={() => toggleMenu()}
+      onClick={(e) => toggleMenu(e)}
       className={` absolute top-0 right-0  w-[100px] h-[40px]  text-black  overflow-hidden    md:rounded-full`}
     >
       <motion.div

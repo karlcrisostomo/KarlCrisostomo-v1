@@ -9,18 +9,18 @@ export const useMouseContext = () => {
 };
 
 export const MouseProvider = ({ children }) => {
-  const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredSection, setHoveredSection] = useState("");
-  const [isHovered, setHovered] = useState(false);
-  const menuRef = useRef(null);
-  useEffect(() => {
-    const updateMousePosition = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
-    };
+  const [isMenuHovered, setMenuHovered] = useState(false);
 
+  const updateMousePosition = (e) => {
+    setMousePosition({
+      x: e.clientX,
+      y: e.clientY,
+    });
+  };
+
+  useEffect(() => {
     window.addEventListener("mousemove", updateMousePosition);
 
     return () => {
@@ -30,9 +30,8 @@ export const MouseProvider = ({ children }) => {
 
   const values = {
     mousePosition,
-    menuRef,
-    isHovered,
-    setHovered,
+    isMenuHovered,
+    setMenuHovered,
     hoveredSection,
     setHoveredSection,
   };

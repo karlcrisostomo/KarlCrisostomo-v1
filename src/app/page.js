@@ -1,12 +1,14 @@
-"use client";
+import { About, Header } from "@/components";
 
-import { About, AppContainer, Header } from "@/components";
+
+
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <About />
+    <Header/>
+    <About/>  
+   
     </>
   );
 }

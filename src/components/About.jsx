@@ -1,16 +1,22 @@
 "use client";
-import { aboutParagraphs, experiece, techStack } from "@/constants";
-
+import { aboutParagraphs, awards, experience, techStack } from "@/constants";
 import React, { useState, useEffect, useRef } from "react";
 import { MdArrowRight } from "react-icons/md";
 import { motion, useInView, useSpring } from "framer-motion";
 import { useMouseContext } from "@/context/MouseMoveContext";
-import { styled } from "styled-components";
 
-const StyledExperienceContainer = styled.div.attrs({
-  className: " py-[2em]",
-})``;
-// padding: 1em 0 1em 0;
+const StyledContainer = ({ children, title }) => {
+  return (
+    <div className=" py-4">
+      <span className=" text-sm  text-[#f2f2f280]">{title}</span>
+
+      <div className=" text-nowrap pt-4">{children}</div>
+    </div>
+  );
+};
+
+
+
 
 const Countdown = () => {
   const arr = [3, 2, 5, 4, 0, 6, 8, 1];
@@ -60,48 +66,44 @@ const About = () => {
       onMouseEnter={() => values.setHoveredSection("About")}
       onMouseLeave={() => values.setHoveredSection("")}
     >
-      <div className=" min-[0px]:flex-col flex  lg:flex-row justify-between gap-10 ">
-        <div>
+      <div className=" min-[0px]:flex-col flex    lg:flex-row justify-between  ">
+        <div className="   xl:max-w-4xl " >
           {Object.values(aboutParagraphs).map((p, idx) => (
             <p
-              className=" tracking-wider leading-relaxed py-2  text-2xl lg:text-3xl  lg:leading-snug"
+              className="  tracking-wider leading-relaxed py-6 text-2xl lg:text-4xl  lg:leading-snug"
               key={idx}
             >
               {p}
             </p>
           ))}
         </div>
-        <div className=" w-full">
-          <StyledExperienceContainer>
-            <span className=" text-gray-300 font-light sm:text-base">
-              Experience
-            </span>
-
-            {experiece.map((item, idx) => (
+        <div className=" flex-none lg:w-[300px] w-[400px]" >
+          <StyledContainer title={"experience"}>
+            {experience.map((item, idx) => (
               <div key={idx} className="  font-medium">
                 <p>{item.company}</p>
                 <p>{item.date}</p>
                 <p>{item.position} </p>
               </div>
             ))}
-          </StyledExperienceContainer>
+          </StyledContainer>
+          <StyledContainer title={"academic awards"}>
+            {awards.map((item, idx) => (
+              <div key={idx} className="  font-medium">
+                <p>{item.award}</p>
+              </div>
+            ))}
+          </StyledContainer>
 
-          <div>
-            <span className="text-gray-300 font-light sm:text-base">
-              Technology Stack
-            </span>
-
+          <StyledContainer title={"technology stack"}>
             <ul className="    ">
               {techStack.map((item, idx) => (
                 <li className=" " key={idx}>
-                  <div className=" flex items-center ">
-                    <MdArrowRight size={20} />
-                    <p className=" text-sm">{item}</p>
-                  </div>
+                  <p className=" text-sm">{item}</p>
                 </li>
               ))}
             </ul>
-          </div>
+          </StyledContainer>
         </div>
       </div>
     </div>

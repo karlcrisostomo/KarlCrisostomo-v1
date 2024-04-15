@@ -2,25 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-body{
-  @apply min-[200px]:p-4 bg-black p-2 text-white  
-}
-
-.placeholder {
-@apply  bg-orange-400 w-[500px]  h-[500px] mb-12
-}
-
-.menu__bar__1 {
-  @apply bg-white w-7 block h-[2px];
-}
-.menu__bar__2 {
-  @apply bg-white w-7 block h-[2px]  mt-2;
-}
-.menu__bar__1.active {
-  @apply bg-black w-7 block h-[2px];
-}
-.menu__bar__2.active {
-  @apply bg-black w-7 block h-[2px]  mt-2;
+body {
+  @apply min-[200px]:p-4 bg-black p-2  text-[#EEE8E8];
 }

@@ -24,11 +24,17 @@ export const aboutParagraphs = {
   where I am dedicated to crafting responsive websites that elevate user experience.`,
 };
 
-export const experiece = [
+export const experience = [
   {
-    company: "Pixel8 Web Solutions & Consultancy Inc.(REMOTE)",
+    company: "Pixel8 Web Solutions & Consultancy Inc.",
     date: "4/21/2023 - 5/27/2023",
     position: "Front-End Developer Intern",
+  },
+];
+
+export const awards = [
+  {
+    award: "Best Capstone Design",
   },
 ];
 

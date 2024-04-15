@@ -3,7 +3,7 @@
 import { contact } from "@/constants";
 import { useMouseContext } from "@/context/MouseMoveContext";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { AnimatePresence, delay, motion } from "framer-motion";
 import { MenuButton, Nav } from ".";
@@ -31,11 +31,14 @@ const Email = ({ flag }) => {
 };
 
 const Navbar = () => {
-  const [setBg, setBgChange] = useState(false);
   const { values } = useMouseContext();
   const { isMobile, setMobile, setActive, isActive } = menuState();
- 
-  const toggleMenu = () => setActive((prevState) => !prevState);
+  const menuRef = useRef(null);
+  
+  const toggleMenu = (e) => {
+    e.stopPropagation();
+    setActive((prevState) => !prevState);
+  };
 
   const variants = {
     open: {
@@ -46,9 +49,8 @@ const Navbar = () => {
       right: "-20px",
 
       transition: {
-        duration: 0.7,
-        delay: 0.2,
-        type: "tween",
+        duration: 0.75,
+
         ease: [0.33, 1, 0.68, 1],
       },
     },
@@ -77,6 +79,18 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const handleClickedOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setActive(false);
+      }
+    };
+    window.addEventListener("click", handleClickedOutside);
+    return () => {
+      window.removeEventListener("click", handleClickedOutside);
+    };
+  }, [isActive]);
+
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) setMobile(true);
       else setMobile(false);
@@ -89,21 +103,13 @@ const Navbar = () => {
     };
   });
 
-  useEffect(() => {
-    const handleScrollNav = () => {
-      setBgChange(window.scrollY >= 100);
-    };
-
-    window.addEventListener("scroll", handleScrollNav);
-
-    return () => {
-      window.removeEventListener("scroll", handleScrollNav);
-    };
-  }, []);
-
   return (
     <nav>
       <div
+        ref={menuRef}
+        onClick={() => setActive(false)}
+        onMouseEnter={() => values.setMenuHovered(true)}
+        onMouseLeave={() => values.setMenuHovered(false)}
         className={twMerge(
           " fixed z-50  w-full top-0 right-0 flex justify-end  md:top-[50px] md:right-[50px] md:w-auto md:h-auto "
         )}
@@ -113,7 +119,6 @@ const Navbar = () => {
         )}
 
         <motion.div
-          ref={values.menuRef}
           className=" bg-[#f5f7fa] relative   "
           variants={variants}
           animate={isActive ? (isMobile ? "breakpoint" : "open") : "closed"}
