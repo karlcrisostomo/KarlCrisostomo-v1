@@ -10,7 +10,7 @@ import { MenuButton, Nav } from ".";
 import menuState from "@/utils/menuState";
 const Logo = () => {
   return (
-    <div className=" w-full ">
+    <div className=" fixed hidden md:block cursor-pointer hover:scale-110  hover:rotate-[360deg]  transition-all duration-300   top-0 left-0 md:left-[50px] md:top-[50px]  ">
       <Image src="/logo.svg" width={40} height={80} alt="logo" />
     </div>
   );
@@ -34,7 +34,7 @@ const Navbar = () => {
   const { values } = useMouseContext();
   const { isMobile, setMobile, setActive, isActive } = menuState();
   const menuRef = useRef(null);
-  
+
   const toggleMenu = (e) => {
     e.stopPropagation();
     setActive((prevState) => !prevState);
@@ -88,7 +88,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("click", handleClickedOutside);
     };
-  }, [isActive]);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -104,22 +104,18 @@ const Navbar = () => {
   });
 
   return (
-    <nav>
+    <nav className=" h-32 ">
       <div
-        ref={menuRef}
-        onClick={() => setActive(false)}
         onMouseEnter={() => values.setMenuHovered(true)}
         onMouseLeave={() => values.setMenuHovered(false)}
         className={twMerge(
-          " fixed z-50  w-full top-0 right-0 flex justify-end  md:top-[50px] md:right-[50px] md:w-auto md:h-auto "
+          " fixed z-50 w-full   top-0 right-0 flex justify-end  md:top-[50px] md:right-[50px] md:w-auto md:h-auto "
         )}
       >
-        {isActive && (
-          <div className=" bg-white/10  backdrop-blur-[3px]   fixed w-full h-full top-0 left-0" />
-        )}
-
+        <Logo />
         <motion.div
-          className=" bg-[#f5f7fa] relative   "
+          ref={menuRef}
+          className=" bg-[#f5f7fa] relative shadow-md   "
           variants={variants}
           animate={isActive ? (isMobile ? "breakpoint" : "open") : "closed"}
           initial="closed"

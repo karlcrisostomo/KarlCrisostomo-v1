@@ -8,22 +8,22 @@ const Header = () => {
   const intro = ` The Web—Where Creativity Becomes My Playground `;
   const { values } = useMouseContext();
 
-
-
   return (
-    <div className="   ">
-      <div className=" py-[500px]   tracking-wider text-center  ">
-        <p
-          onMouseEnter={() => {
-            values.setHoveredSection();
-          }}
-          onMouseLeave={() => {
-            values.setHoveredSection("");
-          }}
-          className="min-[0px]:text-4xl min-[0px]:tracking-tight  lg:text-7xl xl:text-[5.5rem] lg:tracking-wider"
-        >
-          {intro}
-        </p>
+
+      <section className="  h-screen  flex  flex-col justify-center items-center  tracking-wider text-center  ">
+        <div>
+          <p
+            onMouseEnter={() => {
+              values.setHoveredSection();
+            }}
+            onMouseLeave={() => {
+              values.setHoveredSection("");
+            }}
+            className="min-[0px]:text-4xl min-[0px]:tracking-tight md:text-5xl  lg:text-7xl xl:text-[5.5rem] lg:tracking-wider"
+          >
+            {intro}
+          </p>
+        </div>
 
         <div className="  flex justify-center pt-9 ">
           <a
@@ -34,8 +34,8 @@ const Header = () => {
             <GoArrowUpRight size={22} />
           </a>
         </div>
-      </div>
-    </div>
+      </section>
+
   );
 };
 

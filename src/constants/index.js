@@ -1,8 +1,9 @@
-export const links = [
-  { title: "About", link: "/" },
-  { title: "Projects", link: "/" },
+import { proj1, proj2, proj3, proj4 } from "../../public/assets";
 
-  { title: "Contact", link: "/" },
+export const links = [
+  { id: "#about", title: "About", link: "/" },
+  { id: "#projects", title: "Projects", link: "/" },
+  { id: "#contact", title: "Contact", link: "/" },
 ];
 
 export const footerLinks = [
@@ -10,6 +11,25 @@ export const footerLinks = [
   { title: "Instagram", Link: "/" },
   { title: "LinkedIn", Link: "/" },
   { title: "Email", Link: "/" },
+];
+
+export const projects = [
+  {
+    id: "01",
+    title: "BOOKFINDR",
+    description:
+      " BOOKFINDR harnesses the capabilities of the Google Books API to provide users with seamless access to a vast repository of literary works across a wide range of genres and subjects. Built with the goal of facilitating efficient book discovery and exploration, BOOKFINDR caters to a diverse audience, including avid readers, students, and casual browsers alike. ",
+    image: proj1,
+    alt: "BOOKFINDR",
+  },
+  { id: "02", title: "PIXELHAVEN", image: proj2, alt: "PIXELHAVEN" },
+  { id: "03", title: "PORTFOLI0-01", image: proj3, alt: "PORTFOLI0-01" },
+  {
+    id: "04",
+    title: "REYNALD DION PORTFOLIO",
+    image: proj4,
+    alt: "REYNALD_DION_PORTFOLIO",
+  },
 ];
 
 export const aboutParagraphs = {

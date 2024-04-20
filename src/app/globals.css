@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply min-[200px]:p-4 bg-black p-2  text-[#EEE8E8];
+  @apply  bg-black   text-[#F5F5F5];
 }

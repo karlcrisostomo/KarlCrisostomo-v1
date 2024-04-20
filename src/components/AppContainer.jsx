@@ -25,7 +25,7 @@ const AppContainer = ({ children }) => {
     <section className="">
       <CustomCursor />
 
-      <div className=" max-w-sm  p-4  sm:max-w-md md:max-w-lg lg:max-w-4xl  xl:max-w-[1372px]  mx-auto">
+      <div className=" max-w-sm  p-4  sm:max-w-md md:max-w-xl lg:max-w-4xl  xl:max-w-[1372px]  mx-auto">
         {" "}
         {children}{" "}
       </div>

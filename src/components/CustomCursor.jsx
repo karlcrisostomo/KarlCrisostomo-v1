@@ -58,7 +58,7 @@ const CustomCursor = () => {
         x: values.mousePosition.x - cursorSize / 2,
         y: values.mousePosition.y - cursorSize / 2,
       }}
-      className={` transition-all duration-300  ease-out fixed  left-0 top-0 pointer-events-none rounded-full mix-blend-difference 
+      className={` z-50 transition-all duration-300  ease-out fixed  left-0 top-0 pointer-events-none rounded-full mix-blend-difference 
       ${isHovered && "bg-white duration-200 transition-all"}
      `}
     >

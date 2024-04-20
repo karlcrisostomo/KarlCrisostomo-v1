@@ -2,6 +2,7 @@
 import { footerLinks, links } from "@/constants";
 import { delay, motion } from "framer-motion";
 import styled from "styled-components";
+
 const StyledBody = styled.ul.attrs({
   className:
     "text-black max-md:items-center    text-4xl cursor-pointer  flex flex-col gap-6",
@@ -69,11 +70,27 @@ const Nav = ({ isActive }) => {
     },
   };
 
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const target = e.currentTarget.getAttribute("href");
+
+
+    if (target) {
+      const targetEl = document.querySelector(target);
+      if (targetEl) {
+        targetEl.scrollIntoView({
+          behavior: "smooth",
+          block: "start", // You can adjust this as needed
+        });
+      }
+    }
+  };
   return (
     <div className=" pt-32 px-14">
       <StyledBody>
         {links.map((item, idx) => (
           <motion.li
+            onClick={handleScroll}
             className=" border-b w-full  text-center border-gray-400 pb-2 md:border-none  md:text-start"
             variants={perspective}
             animate="enter"
@@ -82,13 +99,13 @@ const Nav = ({ isActive }) => {
             custom={idx}
             key={idx}
           >
-            {item.title}
+            <p className=" ">{item.title}</p>
           </motion.li>
         ))}
       </StyledBody>
 
       <div className=" py-20">
-        <ul className=" text-black   flex-wrap flex ">
+        <ul className=" text-black   flex-wrap flex  ">
           {footerLinks.map((item, idx) => (
             <motion.li
               custom={idx}
