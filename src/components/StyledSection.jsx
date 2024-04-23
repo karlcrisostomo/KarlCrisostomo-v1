@@ -13,7 +13,7 @@ const StyledSection = ({ children }) => {
 
   return (
     <motion.div
-      className=" h-screen   flex flex-col justify-center   mix-blend-difference  "
+      className=" lg:h-screen  flex flex-col justify-center   mix-blend-difference  "
       ref={el}
       style={{ opacity: scrollYProgress }}
     >

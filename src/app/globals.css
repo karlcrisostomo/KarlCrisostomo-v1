@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "roobert";
+  src: url("/fonts/RoobertRegular.ttf") format("trueType");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "roobert";
+  src: url("/fonts/RoobertBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "roobert";
+  src: url("/fonts/RoobertMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "roobert";
+  src: url("/fonts/RoobertLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
 body {
-  @apply  bg-black   text-[#F5F5F5];
+  @apply bg-black   text-[#F5F5F5]  font-["roobert"] ;
 }

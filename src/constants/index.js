@@ -1,4 +1,4 @@
-import { proj1, proj2, proj3, proj4 } from "../../public/assets";
+import { proj1, proj2, proj3, proj4, proj5, proj6 } from "../../public/assets";
 
 export const links = [
   { id: "#about", title: "About", link: "/" },
@@ -21,14 +21,64 @@ export const projects = [
       " BOOKFINDR harnesses the capabilities of the Google Books API to provide users with seamless access to a vast repository of literary works across a wide range of genres and subjects. Built with the goal of facilitating efficient book discovery and exploration, BOOKFINDR caters to a diverse audience, including avid readers, students, and casual browsers alike. ",
     image: proj1,
     alt: "BOOKFINDR",
+    techStack: [
+      "JavaScript (ES6+)",
+      "Next",
+      "Axios",
+      "Framer-Motion",
+      "Tailwindcss",
+    ],
+    link: "https://github.com/karlcrisostomo/BOOK_FINDR-V2",
+    demo: "https://book-findr-v2.vercel.app/",
   },
-  { id: "02", title: "PIXELHAVEN", image: proj2, alt: "PIXELHAVEN" },
-  { id: "03", title: "PORTFOLI0-01", image: proj3, alt: "PORTFOLI0-01" },
+
+  {
+    id: "02",
+    title: "PIXELHAVEN",
+    image: proj2,
+    alt: "PIXELHAVEN",
+    techStack: [
+      "JavaScript (ES6+)",
+      "Next",
+      "Axios",
+      "Framer-Motion",
+      "Tailwindcss",
+    ],
+    link: "https://github.com/karlcrisostomo/Pixel-Haven",
+    demo: "https://pixel-haven.vercel.app/",
+  },
+  {
+    id: "03",
+    title: "PORTFOLI0-01",
+    image: proj3,
+    alt: "PORTFOLI0-01",
+    techStack: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
+    link: "https://github.com/karlcrisostomo/Portfolio-01",
+    demo: "https://portfolio-01-beryl.vercel.app/",
+  },
   {
     id: "04",
     title: "REYNALD DION PORTFOLIO",
     image: proj4,
     alt: "REYNALD_DION_PORTFOLIO",
+    techStack: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
+    link: "https://github.com/karlcrisostomo/Reynald_dion_portfolio",
+    demo: "https://reynald-dion-portfolio.vercel.app/",
+  },
+  {
+    id: "05",
+    title: "NOTES WEB-APP",
+    image: proj5,
+    alt: "NOTES WEB-APP",
+    techStack: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
+    link: "https://github.com/karlcrisostomo/Reynald_dion_portfolio",
+    demo: "https://reynald-dion-portfolio.vercel.app/",
+  },
+  {
+    id: "06",
+    title: "FireFighting Drone - Prototype ",
+    image: proj6,
+    alt: "FireFighting Drone (Prototype)",
   },
 ];
 

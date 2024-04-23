@@ -19,7 +19,7 @@ const Header = () => {
             onMouseLeave={() => {
               values.setHoveredSection("");
             }}
-            className="min-[0px]:text-4xl min-[0px]:tracking-tight md:text-5xl  lg:text-7xl xl:text-[5.5rem] lg:tracking-wider"
+            className="min-[0px]:text-4xl min-[0px]:tracking-tight md:text-6xl  lg:text-8xl xl:text-[5.5rem] lg:tracking-wider"
           >
             {intro}
           </p>

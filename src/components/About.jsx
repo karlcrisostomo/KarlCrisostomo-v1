@@ -11,6 +11,7 @@ import { MdArrowRight } from "react-icons/md";
 import { motion, useInView, useSpring } from "framer-motion";
 import { useMouseContext } from "@/context/MouseMoveContext";
 import StyledSection from "./StyledSection";
+import menuState from "@/utils/menuState";
 
 const StyledContainer = ({ children, title }) => {
   return (
@@ -64,28 +65,27 @@ const Countdown = () => {
 };
 
 const About = () => {
+  const { linksRef, setRef } = menuState();
   const { values } = useMouseContext();
   return (
     <div
+     id="about"
       onMouseEnter={() => values.setHoveredSection("About")}
       onMouseLeave={() => values.setHoveredSection("")}
     >
       <StyledSection>
-        <div
-          className="   min-[0px]:flex-col flex     lg:flex-row justify-between  "
-         
-        >
-          <div className="   xl:max-w-4xl ">
+        <div className="   min-[0px]:flex-col flex   lg:flex-row justify-between  ">
+          <div className=" lg:max-w-xl   xl:max-w-4xl ">
             {Object.values(aboutParagraphs).map((p, idx) => (
               <p
-                className="  tracking-wider leading-relaxed py-6 text-2xl lg:text-4xl  lg:leading-snug"
+                className="  tracking-wider leading-relaxed py-6 text-2xl lg:text-3xl  lg:leading-snug"
                 key={idx}
               >
                 {p}
               </p>
             ))}
           </div>
-          <div className=" flex-none lg:w-[300px] w-[400px]">
+          <div className=" min-[0px]:w-0  lg:w-[300px] w-[400px]">
             <StyledContainer title={"experience"}>
               {experience.map((item, idx) => (
                 <div key={idx} className="  font-medium">

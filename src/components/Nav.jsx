@@ -1,14 +1,19 @@
 "use client";
 import { footerLinks, links } from "@/constants";
-import { delay, motion } from "framer-motion";
+import { TbArrowNarrowRight } from "react-icons/tb";
+import { motion } from "framer-motion";
+import { useState } from "react";
+
+import Link from "next/link";
+
 import styled from "styled-components";
 
-const StyledBody = styled.ul.attrs({
-  className:
-    "text-black max-md:items-center    text-4xl cursor-pointer  flex flex-col gap-6",
-})``;
+const Nav = ({ setActive }) => {
+  const [onHover, setHover] = useState(null);
 
-const Nav = ({ isActive }) => {
+  const handleItemHover = (i) => {
+    setHover(i);
+  };
   const perspective = {
     initial: {
       opacity: 0,
@@ -70,28 +75,53 @@ const Nav = ({ isActive }) => {
     },
   };
 
-  const handleScroll = (e) => {
+  const styledLinks = {
+    initial: {
+      opacity: 0,
+      x: -100,
+      transition: {
+        duration: 0.2,
+        ease: [0.61, 1, 0.88, 1],
+      },
+    },
+    enter: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.2,
+        ease: [0.61, 1, 0.88, 1],
+      },
+    },
+    exit: {
+      opacity: 0,
+      x: -100,
+      transition: {
+        duration: 0.2,
+        ease: [0.61, 1, 0.88, 1],
+      },
+    },
+  };
+  const smoothScroll = (e) => {
     e.preventDefault();
     const target = e.currentTarget.getAttribute("href");
-
-
     if (target) {
       const targetEl = document.querySelector(target);
+      // setActive(false);
       if (targetEl) {
         targetEl.scrollIntoView({
           behavior: "smooth",
-          block: "start", // You can adjust this as needed
+          block: "start",
         });
       }
     }
   };
+
   return (
-    <div className=" pt-32 px-14">
-      <StyledBody>
+    <div className=" pt-32 px-14 overflow-hidden ">
+      <ul className="text-black max-md:items-center   w-full text-4xl  flex flex-col   gap-6">
         {links.map((item, idx) => (
           <motion.li
-            onClick={handleScroll}
-            className=" border-b w-full  text-center border-gray-400 pb-2 md:border-none  md:text-start"
+            className=" border-b w-full  text-center border-gray-400 pb-2 md:border-none    md:text-start "
             variants={perspective}
             animate="enter"
             exit="exit"
@@ -99,10 +129,35 @@ const Nav = ({ isActive }) => {
             custom={idx}
             key={idx}
           >
-            <p className=" ">{item.title}</p>
+            <Link onClick={smoothScroll} href={item.id}>
+              <motion.div
+                className=" relative "
+                onMouseEnter={() => handleItemHover(idx)}
+                onMouseLeave={() => handleItemHover(null)}
+              >
+                <motion.span
+                  className=" absolute flex items-center"
+                  variants={styledLinks}
+                  animate={
+                    onHover !== null && onHover === idx ? "enter" : "exit"
+                  }
+                  exit="exit"
+                  initial="exit"
+                >
+                  <TbArrowNarrowRight />
+                </motion.span>
+
+                <motion.div
+                  animate={{ x: onHover === idx ? 50 : 0 }}
+                  className={`${onHover === idx ? "font-bold" : "font-normal"}`}
+                >
+                  {item.title}
+                </motion.div>
+              </motion.div>
+            </Link>
           </motion.li>
         ))}
-      </StyledBody>
+      </ul>
 
       <div className=" py-20">
         <ul className=" text-black   flex-wrap flex  ">
@@ -113,7 +168,7 @@ const Nav = ({ isActive }) => {
               animate="enter"
               initial="initial"
               exit="exit"
-              className="  w-[50%] mt-2"
+              className="  hover:font-bold transition-all duration-150  w-[50%] mt-2"
               key={idx}
             >
               <a

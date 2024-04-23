@@ -10,10 +10,9 @@ const AppContainer = ({ children }) => {
   const { values } = useMouseContext();
 
   useEffect(() => {
-    let smoothScroll; // Declare smoothScroll variable outside useEffect to make it accessible in cleanup function
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      smoothScroll = new LocomotiveScroll({
+      const smoothScroll = new LocomotiveScroll({
         lenisOptions: {
           duration: 3.5,
         },
@@ -25,10 +24,7 @@ const AppContainer = ({ children }) => {
     <section className="">
       <CustomCursor />
 
-      <div className=" max-w-sm  p-4  sm:max-w-md md:max-w-xl lg:max-w-4xl  xl:max-w-[1372px]  mx-auto">
-        {" "}
-        {children}{" "}
-      </div>
+      <div className=" "> {children} </div>
     </section>
   );
 };

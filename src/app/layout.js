@@ -2,6 +2,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { AppContainer, Navbar } from "@/components";
 import { MouseProvider } from "@/context/MouseMoveContext";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -14,9 +16,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <MouseProvider>
-        <body className={jakarta.className}>
-          <Navbar />
-          <AppContainer> {children}</AppContainer> 
+        <body>
+          <AppContainer><Suspense fallback={<Loading/>}>{children}</Suspense></AppContainer>
         </body>
       </MouseProvider>
     </html>

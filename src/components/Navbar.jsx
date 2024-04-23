@@ -120,10 +120,16 @@ const Navbar = () => {
           animate={isActive ? (isMobile ? "breakpoint" : "open") : "closed"}
           initial="closed"
         >
-          <AnimatePresence>{isActive && <Nav />}</AnimatePresence>
+          <AnimatePresence>
+            {isActive && <Nav setActive={setActive} />}
+          </AnimatePresence>
         </motion.div>
         <MenuButton toggleMenu={toggleMenu} isActive={isActive} />
       </div>
+
+      {isActive && (
+        <div  className=" w-full  fixed z-40 top-0 left-0 h-full" />
+      )}
     </nav>
   );
 };
