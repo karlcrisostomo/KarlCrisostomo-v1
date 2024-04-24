@@ -1,26 +1,28 @@
 "use client";
 import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { useAnimate, motion } from "framer-motion";
 import { useMouseContext } from "@/context/MouseMoveContext";
 import styled from "styled-components";
 const CustomCursor = () => {
   const { values } = useMouseContext();
-  const isHovered = values.hoveredSection !== "";
-  const cursorSize = isHovered ? 300 : 40;
+
+  const cursorSize = values.hoveredSection !== "" ? 300 : 40;
 
   useEffect(() => {
-    if (isHovered) {
+    if (values.hoveredSection !== "") {
       document.body.style.cursor = "none";
     } else {
       document.body.style.cursor = "auto";
     }
-  }, [isHovered]);
+ 
+  }, [values.hoveredSection]);
 
   const animateMenu = {
     enter: {
       width: "0px",
       height: "0px",
       border: "0px",
+
       transition: {
         duration: 0.1,
         ease: [0.22, 1, 0.36, 1],
@@ -49,24 +51,22 @@ const CustomCursor = () => {
   return (
     <motion.div
       variants={animateMenu}
-      animate={values?.isMenuHovered ? "enter" : "exit"}
-      exit="exit"
       initial="initial"
+      animate={values?.isHovered ? "enter" : "exit"}
+      exit="exit"
       style={{
         x: values?.mousePosition.x - cursorSize / 2,
         y: values?.mousePosition.y - cursorSize / 2,
       }}
       className={`z-50 transition-all duration-300 ease-out fixed left-0 top-0 pointer-events-none rounded-full mix-blend-difference 
-      ${isHovered && "bg-white duration-200 transition-all"}
+      ${values.hoveredSection !== "" && "bg-white duration-200 transition-all"}
      `}
     >
       <div className="flex flex-col justify-center items-center h-full text-lg font-black text-black">
-        {isHovered && <p>{values.hoveredSection}</p>}
+        {values.hoveredSection && <p>{values.hoveredSection}</p>}
       </div>
     </motion.div>
   );
 };
-
-
 
 export default CustomCursor;

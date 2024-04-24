@@ -106,8 +106,8 @@ const Navbar = () => {
   return (
     <nav className=" h-32 ">
       <div
-        onMouseEnter={() => values.setMenuHovered(true)}
-        onMouseLeave={() => values.setMenuHovered(false)}
+        onMouseEnter={() => values.setHovered(true)}
+        onMouseLeave={() => values.setHovered(false)}
         className={twMerge(
           " fixed z-50 w-full   top-0 right-0 flex justify-end  md:top-[50px] md:right-[50px] md:w-auto md:h-auto "
         )}

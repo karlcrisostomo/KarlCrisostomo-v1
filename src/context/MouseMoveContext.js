@@ -11,7 +11,7 @@ export const useMouseContext = () => {
 export const MouseProvider = ({ children }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredSection, setHoveredSection] = useState("");
-  const [isMenuHovered, setMenuHovered] = useState(false);
+  const [isHovered, setHovered] = useState(false);
 
   const updateMousePosition = (e) => {
     setMousePosition({
@@ -30,8 +30,8 @@ export const MouseProvider = ({ children }) => {
 
   const values = {
     mousePosition,
-    isMenuHovered,
-    setMenuHovered,
+    isHovered,
+    setHovered,
     hoveredSection,
     setHoveredSection,
   };

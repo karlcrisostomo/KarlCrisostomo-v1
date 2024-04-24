@@ -160,7 +160,7 @@ const Nav = ({ setActive }) => {
       </ul>
 
       <div className=" py-20">
-        <ul className=" text-black   flex-wrap flex  ">
+        <ul className=" text-black flex-wrap flex  ">
           {footerLinks.map((item, idx) => (
             <motion.li
               custom={idx}
@@ -168,7 +168,7 @@ const Nav = ({ setActive }) => {
               animate="enter"
               initial="initial"
               exit="exit"
-              className="  hover:font-bold transition-all duration-150  w-[50%] mt-2"
+              className="    w-[50%] mt-2"
               key={idx}
             >
               <a

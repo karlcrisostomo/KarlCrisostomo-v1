@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  @apply w-[10px] ;
+}
+
+::-webkit-scrollbar-track {
+  @apply shadow-none;
+}
+
+::-webkit-scrollbar-thumb{
+  @apply bg-[#f5f7fa] rounded-md  
+}
+
 @font-face {
   font-family: "roobert";
   src: url("/fonts/RoobertRegular.ttf") format("trueType");
@@ -31,3 +43,4 @@
 body {
   @apply bg-black   text-[#F5F5F5]  font-["roobert"] ;
 }
+
