@@ -42,15 +42,14 @@ const Loading = ({ setLoading }) => {
       opacity: 1,
       transition: {
         delay: 0.2,
-        duration: 2.25,
+        duration: 0.75,
       },
     },
     exit: {
       opacity: 0,
 
       transition: {
-        delay: 0.2,
-        duration: 2.25,
+        duration: 0.75 ,
       },
     },
   };

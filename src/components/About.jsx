@@ -12,16 +12,7 @@ import { motion, useInView, useSpring } from "framer-motion";
 import { useMouseContext } from "@/context/MouseMoveContext";
 import StyledSection from "./StyledSection";
 import menuState from "@/utils/menuState";
-
-const StyledContainer = ({ children, title }) => {
-  return (
-    <div className=" py-4">
-      <span className=" text-sm  text-[#f2f2f280]">{title}</span>
-
-      <div className=" text-nowrap pt-4">{children}</div>
-    </div>
-  );
-};
+import { ImageDragger } from ".";
 
 const Countdown = () => {
   const arr = [3, 2, 5, 4, 0, 6, 8, 1];
@@ -65,15 +56,9 @@ const Countdown = () => {
 };
 
 const About = () => {
-  const { linksRef, setRef } = menuState();
-  const { values } = useMouseContext();
   return (
-    <div
-     id="about"
-      onMouseEnter={() => values.setHoveredSection("About")}
-      onMouseLeave={() => values.setHoveredSection("")}
-    >
-      <StyledSection>
+    <div id="about">
+      <StyledSection section="about">
         <div className="   min-[0px]:flex-col flex   lg:flex-row justify-between  ">
           <div className=" lg:max-w-xl   xl:max-w-4xl ">
             {Object.values(aboutParagraphs).map((p, idx) => (
@@ -86,7 +71,7 @@ const About = () => {
             ))}
           </div>
           <div className=" min-[0px]:w-0  lg:w-[300px] w-[400px]">
-            <StyledContainer title={"experience"}>
+            <StyledContainer title="experience">
               {experience.map((item, idx) => (
                 <div key={idx} className="  font-medium">
                   <p>{item.company}</p>
@@ -95,7 +80,7 @@ const About = () => {
                 </div>
               ))}
             </StyledContainer>
-            <StyledContainer title={"academic awards"}>
+            <StyledContainer title="academic awards">
               {awards.map((item, idx) => (
                 <div key={idx} className="  font-medium">
                   <p>{item.award}</p>
@@ -103,7 +88,7 @@ const About = () => {
               ))}
             </StyledContainer>
 
-            <StyledContainer title={"technology stack"}>
+            <StyledContainer title="technology">
               <ul className="    ">
                 {techStack.map((item, idx) => (
                   <li className=" " key={idx}>
@@ -115,6 +100,33 @@ const About = () => {
           </div>
         </div>
       </StyledSection>
+
+      <ImageDragger />
+    </div>
+  );
+};
+
+const StyledContainer = ({ children, title }) => {
+  return (
+    <div className=" py-4">
+      <span className=" text-sm  text-[#f2f2f280]">{title}</span>
+
+      <div className=" text-nowrap pt-4">{children}</div>
+    </div>
+  );
+};
+
+const ImageWrapper = ({ children, imageRef }) => {
+  const { values } = useMouseContext();
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => values.setHovered(true)}
+      onMouseLeave={() => values.setHovered(false)}
+      ref={imageRef}
+    >
+      {children}
     </div>
   );
 };

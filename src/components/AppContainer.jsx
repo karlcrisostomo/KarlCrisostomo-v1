@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CustomCursor } from ".";
 
 const AppContainer = ({ children }) => {
+  const [cursorActive, setCursorActive] = useState(true);
+
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
@@ -15,9 +17,26 @@ const AppContainer = ({ children }) => {
     })();
   }, []);
 
+  useEffect(() => {
+    const handleCursor = () => {
+      if (window.innerWidth <= 768) {
+        setCursorActive(false);
+      } else {
+        setCursorActive(true);
+      }
+    };
+
+    handleCursor();
+    window.addEventListener("resize", handleCursor);
+
+    return () => {
+      window.removeEventListener("resize", handleCursor);
+    };
+  }, []);
+
   return (
     <section className="">
-      <CustomCursor />
+      {cursorActive && <CustomCursor />}
 
       <div className=" "> {children} </div>
     </section>

@@ -1,4 +1,14 @@
-import { proj1, proj2, proj3, proj4, proj5, proj6 } from "../../public/assets";
+import {
+  featuredImg1,
+  featuredImg2,
+  featuredImg3,
+  proj1,
+  proj2,
+  proj3,
+  proj4,
+  proj5,
+  proj6,
+} from "../../public/assets";
 
 export const links = [
   { id: "#about", title: "About", link: "/" },
@@ -13,12 +23,22 @@ export const footerLinks = [
   { title: "Email", Link: "/" },
 ];
 
+export const featuredImages = [
+  { src: featuredImg1, alt: "dog 1" },
+  { src: featuredImg2, alt: "dog 2" },
+  { src: featuredImg3, alt: "group of friends" },
+];
+
 export const projects = [
   {
     id: "01",
     title: "BOOKFINDR",
-    description:
-      " BOOKFINDR harnesses the capabilities of the Google Books API to provide users with seamless access to a vast repository of literary works across a wide range of genres and subjects. Built with the goal of facilitating efficient book discovery and exploration, BOOKFINDR caters to a diverse audience, including avid readers, students, and casual browsers alike. ",
+    description: ` BOOKFINDR harnesses the capabilities 
+      of the Google Books API to provide users 
+      with seamless access to a vast repository of literary works 
+      across a wide range of genres and subjects. 
+      Built with the goal of facilitating efficient book discovery and exploration, 
+      BOOKFINDR caters to a diverse audience, including avid readers, students, and casual browsers alike. `,
     image: proj1,
     alt: "BOOKFINDR",
     techStack: [
@@ -35,6 +55,13 @@ export const projects = [
   {
     id: "02",
     title: "PIXELHAVEN",
+    description: `PixelHaven is a dynamic web application 
+    built with Next.js, inspired by the functionality of the 
+    popular stock image website Pexels. Leveraging the Pexels API, 
+    PixelHaven provides users with the ability to seamlessly search 
+    for high-quality photos and videos. With a sleek interface and efficient 
+    search functionality, PixelHaven offers a user-friendly experience for 
+    accessing diverse multimedia content. `,
     image: proj2,
     alt: "PIXELHAVEN",
     techStack: [

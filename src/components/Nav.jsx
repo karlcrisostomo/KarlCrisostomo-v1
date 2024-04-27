@@ -10,9 +10,13 @@ import styled from "styled-components";
 
 const Nav = ({ setActive }) => {
   const [onHover, setHover] = useState(null);
-
+  const [footerHover, setFooterHover] = useState(null);
   const handleItemHover = (i) => {
     setHover(i);
+  };
+
+  const handleFooterItemsHover = (i) => {
+    setFooterHover(i);
   };
   const perspective = {
     initial: {
@@ -106,7 +110,7 @@ const Nav = ({ setActive }) => {
     const target = e.currentTarget.getAttribute("href");
     if (target) {
       const targetEl = document.querySelector(target);
-      // setActive(false);
+
       if (targetEl) {
         targetEl.scrollIntoView({
           behavior: "smooth",
@@ -172,12 +176,23 @@ const Nav = ({ setActive }) => {
               key={idx}
             >
               <a
-                href="
-                
-              "
+                className=" cursor-pointer"
+                onMouseEnter={() => handleFooterItemsHover(idx)}
+                onMouseLeave={() => handleFooterItemsHover(null)}
               >
-                {" "}
-                {item.title}
+                <motion.div
+                  animate={{
+                    fontWeight: footerHover === idx ? 600 : 400,
+
+                    transition: {
+                      duration: 0.2,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {" "}
+                  {item.title}
+                </motion.div>
               </a>
             </motion.li>
           ))}

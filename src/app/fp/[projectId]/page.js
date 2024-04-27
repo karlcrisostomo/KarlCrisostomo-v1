@@ -31,7 +31,7 @@ const LinkButton = ({ children, link, title }) => {
 };
 
 const Page = ({ params }) => {
-  const project = projects.find((proj) => proj.id === params.projectId);
+  const project = projects.find((proj) => proj.title === params.projectId);
   const { title, image, alt, description, techStack, link, demo } = project;
   const { values } = useMouseContext();
   const [isLoading, setLoading] = useState(true);
