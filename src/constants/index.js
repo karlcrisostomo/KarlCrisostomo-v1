@@ -10,6 +10,7 @@ import {
   proj6,
 } from "../../public/assets";
 
+import { pet1, pet2, pet3, pet4 } from "../../public/assets/myPets";
 export const links = [
   { id: "#about", title: "About", link: "/" },
   { id: "#projects", title: "Projects", link: "/" },
@@ -24,9 +25,17 @@ export const footerLinks = [
 ];
 
 export const featuredImages = [
-  { src: featuredImg1, alt: "dog 1" },
-  { src: featuredImg2, alt: "dog 2" },
-  { src: featuredImg3, alt: "group of friends" },
+  [
+    { src: pet1, alt: "pet_1" },
+    { src: pet2, alt: "pet_2" },
+    { src: pet3, alt: "pet_3" },
+    { src: pet4, alt: "pet_4" },
+  ],
+  [
+    { src: featuredImg1, alt: "dog 1" },
+    { src: featuredImg2, alt: "dog 2" },
+    { src: featuredImg3, alt: "group of friends" },
+  ],
 ];
 
 export const projects = [

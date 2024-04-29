@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useAnimate, motion } from "framer-motion";
 import { useMouseContext } from "@/context/MouseMoveContext";
-import styled from "styled-components";
+
 const CustomCursor = () => {
   const { values } = useMouseContext();
 

@@ -14,26 +14,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import Loading from "./loading";
 import { useMouseContext } from "@/context/MouseMoveContext";
 
-const LinkButton = ({ children, link, title }) => {
-  return (
-    <>
-      <a
-        title={title}
-        className=" h-fit transition-all duration-600  hover:bg-[#434343]  p-1 rounded-sm  "
-        target="_blank"
-        rel="noopener noreferrer"
-        href={link}
-      >
-        {children}
-      </a>
-    </>
-  );
-};
-
 const Page = ({ params }) => {
   const project = projects.find((proj) => proj.title === params.projectId);
   const { title, image, alt, description, techStack, link, demo } = project;
-  const { values } = useMouseContext();
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -54,9 +37,9 @@ const Page = ({ params }) => {
           <Loading setLoading={setLoading} />
         </motion.div>
       ) : (
-        <div className="p-4   ">
+        <div className="p-4    ">
+          <RouteBackComponent />
           <div className="container mx-auto">
-            <RouteBackComponent />
             <span>
               <h1 className="py-10 text-3xl lg:text-5xl">{title}</h1>
             </span>
@@ -107,6 +90,22 @@ const Page = ({ params }) => {
   );
 };
 
+const LinkButton = ({ children, link, title }) => {
+  return (
+    <>
+      <a
+        title={title}
+        className=" h-fit transition-all duration-600  hover:bg-[#434343]  p-1 rounded-sm  "
+        target="_blank"
+        rel="noopener noreferrer"
+        href={link}
+      >
+        {children}
+      </a>
+    </>
+  );
+};
+
 const RouteBackComponent = () => {
   const [isFocused, setFocused] = useState(false);
   const router = useRouter();
@@ -150,7 +149,7 @@ const RouteBackComponent = () => {
     <motion.div
       onMouseEnter={() => handleMouseEnter(true)}
       onMouseLeave={() => handleMouseLeave(false)}
-      className={` cursor-pointer  border-[1.5px] rounded-full py-1 px-2 w-fit     flex  items-center gap-2 transition-all duration-300  delay-75 ${
+      className={` cursor-pointer  border-[1.5px] rounded-full py-1 px-2 w-fit      flex  items-center gap-2 transition-all duration-300  delay-75 ${
         isFocused ? "border-gray-white" : "border-gray-400"
       }`}
       onClick={handleRouteBack}

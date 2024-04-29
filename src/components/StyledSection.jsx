@@ -12,7 +12,7 @@ const StyledSection = ({ children, section }) => {
 
   const { scrollYProgress } = useScroll({
     target: el,
-    offset: ["start end", "start end"],
+    offset: ["start end", "start start"],
   });
 
   return (

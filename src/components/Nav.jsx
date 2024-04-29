@@ -1,12 +1,11 @@
 "use client";
 import { footerLinks, links } from "@/constants";
 import { TbArrowNarrowRight } from "react-icons/tb";
+import { IoMdArrowDropright } from "react-icons/io";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 import Link from "next/link";
-
-import styled from "styled-components";
 
 const Nav = ({ setActive }) => {
   const [onHover, setHover] = useState(null);
@@ -82,7 +81,7 @@ const Nav = ({ setActive }) => {
   const styledLinks = {
     initial: {
       opacity: 0,
-      x: -100,
+      x: -50,
       transition: {
         duration: 0.2,
         ease: [0.61, 1, 0.88, 1],
@@ -98,7 +97,7 @@ const Nav = ({ setActive }) => {
     },
     exit: {
       opacity: 0,
-      x: -100,
+      x: -50,
       transition: {
         duration: 0.2,
         ease: [0.61, 1, 0.88, 1],
@@ -135,7 +134,7 @@ const Nav = ({ setActive }) => {
           >
             <Link onClick={smoothScroll} href={item.id}>
               <motion.div
-                className=" relative "
+                className=" relative max-md:w-full w-fit "
                 onMouseEnter={() => handleItemHover(idx)}
                 onMouseLeave={() => handleItemHover(null)}
               >
@@ -146,7 +145,7 @@ const Nav = ({ setActive }) => {
                     onHover !== null && onHover === idx ? "enter" : "exit"
                   }
                   exit="exit"
-                  initial="exit"
+                  initial="initial"
                 >
                   <TbArrowNarrowRight />
                 </motion.span>
@@ -164,7 +163,7 @@ const Nav = ({ setActive }) => {
       </ul>
 
       <div className=" py-20">
-        <ul className=" text-black flex-wrap flex  ">
+        <ul className=" text-black flex-wrap flex   ">
           {footerLinks.map((item, idx) => (
             <motion.li
               custom={idx}
@@ -172,27 +171,36 @@ const Nav = ({ setActive }) => {
               animate="enter"
               initial="initial"
               exit="exit"
-              className="    w-[50%] mt-2"
+              className=" w-[50%] mt-2  "
               key={idx}
             >
               <a
-                className=" cursor-pointer"
+                className=" cursor-pointer flex items-center w-fit  "
                 onMouseEnter={() => handleFooterItemsHover(idx)}
                 onMouseLeave={() => handleFooterItemsHover(null)}
               >
-                <motion.div
-                  animate={{
-                    fontWeight: footerHover === idx ? 600 : 400,
-
-                    transition: {
-                      duration: 0.2,
-                      ease: "linear",
-                    },
-                  }}
+                <motion.span
+                  className=" absolute flex items-center pointer-events-none "
+                  variants={styledLinks}
+                  animate={
+                    footerHover !== null && footerHover === idx
+                      ? "enter"
+                      : "exit"
+                  }
+                  exit="exit"
+                  initial="initial"
                 >
-                  {" "}
+                  <IoMdArrowDropright size={22} />
+                </motion.span>
+
+                <motion.span
+                  animate={{ x: footerHover === idx ? 20 : 0 }}
+                  className={`  transition-all duration-75 ease-linear ${
+                    footerHover === idx ? " font-bold" : "font-normal"
+                  }`}
+                >
                   {item.title}
-                </motion.div>
+                </motion.span>
               </a>
             </motion.li>
           ))}

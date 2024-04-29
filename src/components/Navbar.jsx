@@ -127,7 +127,7 @@ const Navbar = () => {
         <MenuButton toggleMenu={toggleMenu} isActive={isActive} />
       </div>
 
-      {isActive && <div className=" w-full  fixed z-40 top-0 left-0 h-full" />}
+      {isActive && <div className=" max-md:backdrop-blur-sm backdrop-blur-[1.5px] w-full  fixed z-40 top-0 left-0 h-full" />}
     </nav>
   );
 };
