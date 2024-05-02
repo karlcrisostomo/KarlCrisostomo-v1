@@ -18,9 +18,9 @@ function Projects() {
     return () => cleanup;
   }, [values.isHoveredSection]);
 
-  const handleClick = (projectTitle) => {
+  const handleClick = (id) => {
     values.setHoveredSection("");
-    router.push(`/fp/${projectTitle}`);
+    router.push(`/fp/${id}`);
   };
 
   return (
@@ -29,11 +29,20 @@ function Projects() {
         id="projects"
         className="   z-10 w-full py-32 h-full flex flex-col justify-center items-center gap-10    "
       >
+        <p className=" min-[200px]:text-4xl text-7xl flex flex-col items-center pb-28 justify-center uppercase font-normal ">
+          {" "}
+          <span className=" min-[200px]:text-5xl md:text-7xl  lg:text-8xl xl:text-[6rem]  italic font-extralight">
+            featured{" "}
+          </span>{" "}
+          work{" "}
+        </p>
+
         {projects.map((item, idx) => (
-          <div className=" " key={idx} onClick={() => handleClick(item.title)}>
+          <div className=" " key={idx} onClick={() => handleClick(item.id)}>
             <ParallaxContainer
               img={item.image}
               key={idx}
+              idx={idx}
               alt={item.alt}
               itemNumber={item.id}
               title={item.title}

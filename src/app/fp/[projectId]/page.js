@@ -15,7 +15,7 @@ import Loading from "./loading";
 import { useMouseContext } from "@/context/MouseMoveContext";
 
 const Page = ({ params }) => {
-  const project = projects.find((proj) => proj.title === params.projectId);
+  const project = projects.find((proj) => proj.id === params.projectId);
   const { title, image, alt, description, techStack, link, demo } = project;
   const [isLoading, setLoading] = useState(true);
 
@@ -39,19 +39,21 @@ const Page = ({ params }) => {
       ) : (
         <div className="p-4    ">
           <RouteBackComponent />
-          <div className="container mx-auto">
+          <div className="">
             <span>
               <h1 className="py-10 text-3xl lg:text-5xl">{title}</h1>
             </span>
           </div>
           <div className="flex flex-col gap-10">
             <Image
-              className="lg:w-full lg:h-[800px] lg:object-top lg:object-cover"
+              className={`lg:w-full lg:h-[800px] pointer-events-none lg:object-contain ${
+                project?.id === "03" && "border"
+              }`}
               src={image}
               alt={alt}
             />
 
-            <div className="flex-col container mx-auto flex lg:flex-row justify-between">
+            <div className="flex-col  flex lg:flex-row justify-between">
               <div className="lg:w-[800px] pb-12">
                 <span className="py-4 uppercase flex font-bold">
                   Project description

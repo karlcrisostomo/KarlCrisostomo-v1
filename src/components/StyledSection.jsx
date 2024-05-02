@@ -16,11 +16,7 @@ const StyledSection = ({ children, section }) => {
   });
 
   return (
-    <motion.div
-      className="  flex flex-col justify-center   mix-blend-difference  "
-      ref={el}
-      style={{ opacity: scrollYProgress }}
-    >
+    <motion.div className=" " ref={el} style={{ opacity: scrollYProgress }}>
       <div
         onMouseEnter={() => values.setHoveredSection(sectionTitle)}
         onMouseLeave={() => values.setHoveredSection("")}

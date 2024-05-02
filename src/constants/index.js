@@ -2,12 +2,15 @@ import {
   featuredImg1,
   featuredImg2,
   featuredImg3,
+  featuredImg4,
+  featuredImg5,
   proj1,
   proj2,
   proj3,
   proj4,
   proj5,
   proj6,
+  proj7,
 } from "../../public/assets";
 
 import { pet1, pet2, pet3, pet4 } from "../../public/assets/myPets";
@@ -26,15 +29,23 @@ export const footerLinks = [
 
 export const featuredImages = [
   [
-    { src: pet1, alt: "pet_1" },
-    { src: pet2, alt: "pet_2" },
-    { src: pet3, alt: "pet_3" },
-    { src: pet4, alt: "pet_4" },
+    { title: "max.jpg", src: pet1, alt: "pet 1" },
+    { title: "kelly.jpg", src: pet2, alt: "pet 2" },
+    { title: "enzo.jpg", src: pet3, alt: "pet 3" },
+    { title: "kitty.jpg", src: pet4, alt: "pet 4" },
   ],
   [
-    { src: featuredImg1, alt: "dog 1" },
-    { src: featuredImg2, alt: "dog 2" },
-    { src: featuredImg3, alt: "group of friends" },
+    { src: featuredImg1, alt: "group of friends pic 1" },
+    { src: featuredImg2, alt: "group of friends pic 2" },
+    { src: featuredImg3, alt: "group of friends pic 3" },
+  ],
+  [
+    { src: featuredImg4, alt: "Thesis Group pic 1" },
+    { src: featuredImg5, alt: "Thesis Group pic 2" },
+  ],
+  [
+    { src: featuredImg4, alt: "Thesis Group pic 1" },
+    { src: featuredImg5, alt: "Thesis Group pic 2" },
   ],
 ];
 
@@ -114,6 +125,12 @@ export const projects = [
     id: "06",
     title: "FireFighting Drone - Prototype ",
     image: proj6,
+    alt: "FireFighting Drone (Prototype)",
+  },
+  {
+    id: "07",
+    title: "Automated Hydroponics Nutrient Solution Control ",
+    image: proj7,
     alt: "FireFighting Drone (Prototype)",
   },
 ];

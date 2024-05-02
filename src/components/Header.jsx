@@ -2,43 +2,53 @@
 
 import { useMouseContext } from "@/context/MouseMoveContext";
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
 import { GoArrowUpRight } from "react-icons/go";
-import StyledSection from "./StyledSection";
 
 const Header = () => {
-  const intro = ` The Web—Where Creativity Becomes My Playground `;
+  const title = [" The Web—Where Creativity ", " Becomes My Playground "];
   const { values } = useMouseContext();
 
   const animateHeader = {
     initial: {
       opacity: 0,
       y: 100,
+      transition: {
+        duration: 0.25,
+        ease: [0.55, 1, 0.68, 1],
+      },
     },
-    enter: {
+    enter: (idx) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.25,
+        delay: 0.5 + idx * 0.1,
         duration: 0.75,
       },
-    },
+    }),
   };
 
   return (
     <section className="  h-screen  relative  flex  flex-col justify-center items-center  tracking-wider text-center  ">
-      <motion.div variants={animateHeader} initial="initial" animate="enter">
-        <p
-          onMouseEnter={() => {
-            values.setHoveredSection();
-          }}
-          onMouseLeave={() => {
-            values.setHoveredSection("");
-          }}
-          className="min-[0px]:text-4xl min-[0px]:tracking-tight md:text-6xl  lg:text-8xl xl:text-[5.5rem] lg:tracking-wider"
-        >
-          {intro}
-        </p>
+      <motion.div>
+        {title.map((text, idx) => (
+          <div className=" overflow-hidden" key={idx}>
+            <motion.p
+              custom={idx}
+              variants={animateHeader}
+              initial="initial"
+              animate="enter"
+              onMouseEnter={() => {
+                values.setHoveredSection();
+              }}
+              onMouseLeave={() => {
+                values.setHoveredSection("");
+              }}
+              className=" min-[0px]:text-4xl min-[0px]:tracking-tight md:text-6xl lg:text-8xl xl:text-[5.5rem] 2xl:text-[5.7] lg:tracking-wider"
+            >
+              {text}
+            </motion.p>
+          </div>
+        ))}
       </motion.div>
 
       <motion.div
@@ -57,11 +67,13 @@ const Header = () => {
         onMouseLeave={() => values.setHovered(false)}
       >
         <a
-          className=" cursor-pointer flex items-center  text-sm  w-fit  rounded-lg  p-4 hover:-translate-y-2 transition-all duration-200 border border-white/25 hover:bg-white/10 hover:border-white/45
+          className=" cursor-pointer flex items-center  group  text-sm  w-fit  rounded-lg  p-4 hover:-translate-y-2 transition-all duration-200 border border-white/25 hover:bg-white/10 hover:border-white/45
                "
         >
-          <p>Resume</p>
-          <GoArrowUpRight size={22} />
+          <p className=" group-hover:font-bold">Resume</p>
+          <span className="  group-hover:-translate-y-1 group-hover:translate-x-1 translate-x-0 duration-300">
+            <GoArrowUpRight size={22} />
+          </span>
         </a>
       </motion.div>
 
@@ -75,7 +87,7 @@ const Header = () => {
             duration: 0.75,
           },
         }}
-        className=" absolute flex flex-col items-center justify-center   -right-16 pointer-events-none "
+        className=" absolute flex flex-col items-center justify-center max-lg:right-0  -right-16 pointer-events-none animate-bounce  "
       >
         <motion.div
           initial={{
@@ -94,7 +106,7 @@ const Header = () => {
               ease: "easeOut",
             },
           }}
-          className=" bg-white   "
+          className=" bg-white  "
         />
         <motion.div
           initial={{ opacity: 0 }}
@@ -105,7 +117,7 @@ const Header = () => {
               duration: 0.75,
             },
           }}
-          className="  -translate-y-1   "
+          className="  -translate-y-1    "
         >
           <span className=" w-[12px] h-[2px] block rotate-45  -translate-x-[4px] translate-y-[1px]   bg-white" />
           <span className=" w-[12px] h-[2px] block   -rotate-45  translate-x-[4px] -translate-y-[1px]      bg-white" />

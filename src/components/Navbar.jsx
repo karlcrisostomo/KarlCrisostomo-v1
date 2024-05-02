@@ -6,29 +6,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { AnimatePresence, delay, motion } from "framer-motion";
-import { MenuButton, Nav } from ".";
+import { MagneticComponent, MenuButton, Nav } from ".";
 import menuState from "@/utils/menuState";
-const Logo = () => {
-  return (
-    <div className=" fixed hidden md:block cursor-pointer hover:scale-110  hover:rotate-[360deg]  transition-all duration-300   top-0 left-0 md:left-[50px] md:top-[50px]  ">
-      <Image src="/logo.svg" width={40} height={80} alt="logo" />
-    </div>
-  );
-};
-
-const Email = ({ flag }) => {
-  const email = "karlcrisostomo.dev@gmail.com";
-
-  const handleEmailClick = () => {
-    window.location.href = `mailto:${email}`;
-  };
-
-  return (
-    <div className={flag ? "" : " text-end w-full"}>
-      <button onClick={handleEmailClick}>{flag ? "EMAIL" : `${email}`}</button>
-    </div>
-  );
-};
 
 const Navbar = () => {
   const { values } = useMouseContext();
@@ -104,18 +83,18 @@ const Navbar = () => {
   });
 
   return (
-    <nav className=" h-32 ">
+    <nav className=" h-32    ">
       <div
         onMouseEnter={() => values.setHovered(true)}
         onMouseLeave={() => values.setHovered(false)}
         className={twMerge(
-          " fixed z-50 w-full   top-0 right-0 flex justify-end  md:top-[50px] md:right-[50px] md:w-auto md:h-auto "
+          " fixed z-50 w-full  top-0 right-0 flex justify-end  md:top-[50px] md:right-[50px] min-[1920px]:top-[100px]  min-[1920px]:right-[100px] md:w-auto md:h-auto "
         )}
       >
         <Logo />
         <motion.div
           ref={menuRef}
-          className=" bg-[#f5f7fa] relative shadow-md   "
+          className=" bg-[#f5f7fa]   cursor-pointer relative shadow-md   "
           variants={variants}
           animate={isActive ? (isMobile ? "breakpoint" : "open") : "closed"}
           initial="closed"
@@ -127,9 +106,57 @@ const Navbar = () => {
         <MenuButton toggleMenu={toggleMenu} isActive={isActive} />
       </div>
 
-      {isActive && <div className=" max-md:backdrop-blur-sm backdrop-blur-[1.5px] w-full  fixed z-40 top-0 left-0 h-full" />}
+      {isActive && (
+        <div className=" max-md:backdrop-blur-sm backdrop-blur-[1.5px] w-full  fixed z-40 top-0 left-0 h-full" />
+      )}
     </nav>
   );
 };
 
 export default Navbar;
+
+const Logo = () => {
+  const [isHover, setHover] = useState(false);
+
+  const handleReload = () => {
+    window.location.reload();
+  };
+  return (
+    <div
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onClick={handleReload}
+      className="fixed hidden md:block cursor-pointer transition-all duration-300 top-0 left-0 md:left-[50px] md:top-[50px] min-[1920px]:top-[100px] min-[1920px]:left-[100px]"
+    >
+      <MagneticComponent>
+        <div className="relative flex">
+          {isHover && (
+            <span className=" bg-white blur-sm rounded-full w-full h-full absolute top-0 z-10" />
+          )}
+
+          <Image
+            className={`z-20 ${isHover && "rotate-[360deg] transition-all duration-500  delay-200" }`}
+            src="/logo.svg"
+            width={40}
+            height={80}
+            alt="logo"
+          />
+        </div>
+      </MagneticComponent>
+    </div>
+  );
+};
+
+const Email = ({ flag }) => {
+  const email = "karlcrisostomo.dev@gmail.com";
+
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${email}`;
+  };
+
+  return (
+    <div className={flag ? "" : " text-end w-full"}>
+      <button onClick={handleEmailClick}>{flag ? "EMAIL" : `${email}`}</button>
+    </div>
+  );
+};
