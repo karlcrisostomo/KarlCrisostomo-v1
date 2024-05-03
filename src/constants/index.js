@@ -44,8 +44,22 @@ export const featuredImages = [
     { src: featuredImg5, alt: "Thesis Group pic 2" },
   ],
   [
-    { src: featuredImg4, alt: "Thesis Group pic 1" },
-    { src: featuredImg5, alt: "Thesis Group pic 2" },
+    { title: "max.jpg", src: pet1, alt: "pet 1" },
+    { title: "kelly.jpg", src: pet2, alt: "pet 2" },
+    { title: "enzo.jpg", src: pet3, alt: "pet 3" },
+    { title: "kitty.jpg", src: pet4, alt: "pet 4" },
+  ],
+  [
+    { title: "max.jpg", src: pet1, alt: "pet 1" },
+    { title: "kelly.jpg", src: pet2, alt: "pet 2" },
+    { title: "enzo.jpg", src: pet3, alt: "pet 3" },
+    { title: "kitty.jpg", src: pet4, alt: "pet 4" },
+  ],
+  [
+    { title: "max.jpg", src: pet1, alt: "pet 1" },
+    { title: "kelly.jpg", src: pet2, alt: "pet 2" },
+    { title: "enzo.jpg", src: pet3, alt: "pet 3" },
+    { title: "kitty.jpg", src: pet4, alt: "pet 4" },
   ],
 ];
 

@@ -3,7 +3,7 @@
 import { projects } from "@/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react"; // Import Suspense
+import { useEffect, useState } from "react"; 
 
 import { GoArrowUpRight } from "react-icons/go";
 import { IoCodeOutline } from "react-icons/io5";
@@ -37,7 +37,7 @@ const Page = ({ params }) => {
           <Loading setLoading={setLoading} />
         </motion.div>
       ) : (
-        <div className="p-4    ">
+        <div className="p-4 z-10  ">
           <RouteBackComponent />
           <div className="">
             <span>
@@ -79,7 +79,7 @@ const Page = ({ params }) => {
                   <IoCodeOutline size={22} />
                 </LinkButton>
 
-                <LinkButton link={demo} title={"live demo"}>
+                <LinkButton link={demo} title="live demo">
                   <GoArrowUpRight size={22} />
                 </LinkButton>
               </div>

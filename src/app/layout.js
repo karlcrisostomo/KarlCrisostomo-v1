@@ -1,6 +1,6 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { AppContainer, Navbar } from "@/components";
+import { AppContainer, Footer, Navbar } from "@/components";
 import { MouseProvider } from "@/context/MouseMoveContext";
 
 // const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
@@ -15,7 +15,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <MouseProvider>
         <body>
-          <AppContainer>{children}</AppContainer>
+          <main>
+            <AppContainer>
+              
+              <main>{children}</main>
+            </AppContainer>
+            <Footer />
+          </main>
         </body>
       </MouseProvider>
     </html>

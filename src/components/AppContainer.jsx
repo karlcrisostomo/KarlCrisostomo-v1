@@ -35,10 +35,10 @@ const AppContainer = ({ children }) => {
   }, []);
 
   return (
-    <section className="max-w-md p-6 lg:p-12 sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-[1372px] mx-auto">
+    <section className="max-w-md p-6  lg:p-12 sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-[1372px] mx-auto">
       {cursorActive && <CustomCursor />}
-
-      <div className=" "> {children} </div>
+      <div className="bg " />
+      <div className="  "> {children} </div>
     </section>
   );
 };

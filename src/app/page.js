@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import Loading from "./fp/[projectId]/loading";
 import { About, AppContainer, Header, Navbar, Projects } from "@/components";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   const [isloading, setLoading] = useState(true);
@@ -36,6 +37,7 @@ export default function Home() {
       <Header />
       <About />
       <Projects />
+      <Contact/>
     </>
   );
 }

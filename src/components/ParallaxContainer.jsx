@@ -44,7 +44,7 @@ const ParallaxContainer = ({ img, alt, itemNumber, title, idx }) => {
         </div>
       </div>
 
-      <motion.div className="w-full  z-10" style={{ y: translateY }}>
+      <motion.div className="w-full   z-0" style={{ y: translateY }}>
         <Image
           className={`object-cover  ${
             idx === 2 && " invert grayscale"

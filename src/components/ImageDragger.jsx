@@ -21,8 +21,8 @@ const ImageDragger = ({ containerRef }) => {
     { top: "10vh", left: "15vw" },
     { top: "30vh", left: "25vw" },
     { top: "15vh", left: "35vw" },
-    { top: "40vh", left: "60vw" },
-    { top: "60vh", left: "10vw" },
+    { top: "40vh", left: "10vw" },
+    { top: "60vh", left: "33vw" },
   ];
 
   useEffect(() => {});
@@ -30,7 +30,7 @@ const ImageDragger = ({ containerRef }) => {
     initial: (idx) => ({
       opacity: 0,
       left: imagePositions[idx]?.left,
-      top: "50vh",
+      top: "100vh",
       transition: { delay: 0.2, duration: 0.75 },
     }),
     enter: (idx) => ({
@@ -63,14 +63,14 @@ const ImageDragger = ({ containerRef }) => {
 
   return (
     <div
-      className="w-full  mx-auto  relative   h-screen       "
+      className="w-full  mx-auto  relative   h-screen        "
       ref={imgObserver}
     >
       <ul>
         {featuredImages.map((item, idx) => (
           <motion.li
             key={idx}
-            className=" bg-[#D8D8D8]   min-[200px]:p-0    absolute top-0 left-0   w-fit  h-fit lg:p-4 outline-double cursor-grab outline-white/35 rounded-lg   "
+            className=" bg-[#D8D8D8]  overflow-hidden  min-[200px]:p-0    absolute top-0 left-0   w-fit  h-fit  outline-double cursor-grab outline-white/35 rounded-lg   "
             drag={idx === 1 || idx === 3 ? "x" : true}
             variants={imageAnimations}
             custom={idx}
@@ -80,15 +80,17 @@ const ImageDragger = ({ containerRef }) => {
             initial="initial"
             animate={isInView ? "enter" : "initial"}
           >
-            <span>{item[currentImageIndices[idx]]?.title}</span>
-            <MdOutlineCancel
-              className="  cursor-pointer absolute  top-[3px] right-[3px] "
-              size={22}
-              color="black"
-              onClick={() => handleRemove(idx)}
-            />
+            <div className=" flex items-center justify-end py-1 px-2">
+              <span className="  w-full text-center text-black">{item[currentImageIndices[idx]]?.title}</span>
+              <MdOutlineCancel
+                className="  cursor-pointer   "
+                size={22}
+                color="black"
+                onClick={() => handleRemove(idx)}
+              />
+            </div>
             <Image
-              className="pointer-events-none min-[200px]:w-[270px] lg:w-[370px]  xl:w-[400px]   rounded-full lg:rounded-md p-2  "
+              className="pointer-events-none min-[200px]:w-[270px] lg:w-[370px]  xl:w-[400px]  rounded-md  p-1  "
               src={item[currentImageIndices[idx]].src}
               alt={item[currentImageIndices[idx]].alt}
             />
