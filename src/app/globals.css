@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   @apply w-[10px] ;
 }
 
@@ -12,7 +12,7 @@
 
 ::-webkit-scrollbar-thumb{
   @apply bg-[#f5f7fa]   
-} */
+}
 
 @font-face {
   font-family: "roobert";
@@ -41,7 +41,7 @@
 }
 
 body {
-  @apply bg-[#111111]  overflow-hidden  text-[#F5F5F5]  font-["roobert"] ;
+  @apply bg-[#111111]    text-[#F5F5F5]  font-["roobert"] ;
 }
 
 
