@@ -62,7 +62,7 @@ const CustomCursor = () => {
       ${values.hoveredSection !== "" && "bg-white duration-200 transition-all"}
      `}
     >
-      <div className="flex flex-col justify-center items-center h-full text-lg font-black text-black">
+      <div className="flex flex-col justify-center items-center h-full italic opacity-85 text-lg font-black uppercase text-black">
         {values.hoveredSection && <p>{values.hoveredSection}</p>}
       </div>
     </motion.div>

@@ -39,8 +39,15 @@ const About = () => {
   };
   return (
     <div id="about">
-      <StyledSection section="about">
-        <div className=" min-[0px]:flex-col flex pb-32 pt-28   lg:flex-row justify-between  ">
+      <StyledSection >
+        <div className=" min-[0px]:flex-col flex pb-32 pt-28   lg:flex-row justify-between  "
+        
+          onMouseEnter={() => values.setHoveredSection("about")}
+          onMouseLeave={()=> values.setHoveredSection("")}
+        
+        >
+
+          
           <div className=" lg:max-w-xl   xl:max-w-4xl ">
             {Object.values(aboutParagraphs).map((p, idx) => (
               <p
@@ -82,9 +89,9 @@ const About = () => {
         </div>
       </StyledSection>
 
-      <StyledSection section="">
+      <StyledSection  >
         <div
-          className=" py-28 flex flex-col    "
+          className=" py-28 flex flex-col cursor-auto    "
           onMouseEnter={() => values.setHovered(true)}
           onMouseLeave={() => values.setHovered(false)}
         >

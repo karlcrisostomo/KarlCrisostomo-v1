@@ -37,7 +37,7 @@ const Page = ({ params }) => {
           <Loading setLoading={setLoading} />
         </motion.div>
       ) : (
-        <div className="p-4 z-10  ">
+        <div className="p-4 z-10   ">
           <RouteBackComponent />
           <div className="">
             <span>
@@ -46,9 +46,9 @@ const Page = ({ params }) => {
           </div>
           <div className="flex flex-col gap-10">
             <Image
-              className={`lg:w-full lg:h-[800px] pointer-events-none lg:object-contain ${
-                project?.id === "03" && "border"
-              }`}
+              className="lg:w-full lg:h-[800px] pointer-events-none lg:object-contain"
+               
+            
               src={image}
               alt={alt}
             />

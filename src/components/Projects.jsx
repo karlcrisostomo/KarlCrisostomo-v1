@@ -25,10 +25,7 @@ function Projects() {
 
   return (
     <StyledSection section="projects">
-      <div
-        id="projects"
-        className="   z-10 w-full py-32 h-full flex flex-col justify-center items-center gap-10    "
-      >
+      <div id="projects" className="  w-full py-32 h-full    ">
         <p className=" min-[200px]:text-4xl text-7xl flex flex-col items-center pb-28 justify-center uppercase font-normal ">
           {" "}
           <span className=" min-[200px]:text-5xl md:text-7xl  lg:text-8xl xl:text-[6rem]  italic font-extralight">
@@ -37,18 +34,24 @@ function Projects() {
           work{" "}
         </p>
 
-        {projects.map((item, idx) => (
-          <div className=" " key={idx} onClick={() => handleClick(item.id)}>
-            <ParallaxContainer
-              img={item.image}
-              key={idx}
-              idx={idx}
-              alt={item.alt}
-              itemNumber={item.id}
-              title={item.title}
-            />
-          </div>
-        ))}
+        <div
+          className=" flex flex-col justify-center items-center gap-10 "
+          onMouseEnter={() => values.setHoveredSection("project")}
+          onMouseLeave={() => values.setHoveredSection("")}
+        >
+          {projects.map((item, idx) => (
+            <div key={idx} onClick={() => handleClick(item.id)}>
+              <ParallaxContainer
+                img={item.image}
+                key={idx}
+                idx={idx}
+                alt={item.alt}
+                itemNumber={item.id}
+                title={item.title}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </StyledSection>
   );

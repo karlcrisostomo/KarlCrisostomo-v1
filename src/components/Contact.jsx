@@ -39,7 +39,7 @@ const Contact = () => {
 
         <span
           onMouseEnter={() => values.setHovered(true)}
-          onMouseLeave={() => values.setHovered(false)}
+          onMouseLeave={() => values.setHovered("")}
           className=" font-bold pb-4 cursor-pointer mt-20 "
           onClick={copyToClipboard}
         >
@@ -79,10 +79,10 @@ export const IslandNotification = () => {
         initial="initial"
         animate="enter"
         exit="exit"
-        className=" fixed top-[50px] text-white overflow-hidden border-2 flex flex-col justify-center rounded-full bg-black "
+        className=" fixed top-[50px]  text-white overflow-hidden border-2 flex flex-col justify-center rounded-full bg-black "
       >
         <motion.span
-          className=" flex items-center gap-2 font-medium"
+          className=" flex items-center gap-1 font-medium"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { delay: 0.75, duration: 0.75 } }}
         >
