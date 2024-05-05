@@ -1,17 +1,10 @@
 "use client";
-import {
-  aboutParagraphs,
-  awards,
-  experience,
-  links,
-  techStack,
-} from "@/constants";
+import { aboutParagraphs, awards, experience, tools } from "@/constants";
 import React, { useState, useEffect, useRef } from "react";
 
 import { motion, useInView } from "framer-motion";
 import { useMouseContext } from "@/context/MouseMoveContext";
 import StyledSection from "./StyledSection";
-
 import { ImageDragger } from ".";
 
 const About = () => {
@@ -39,16 +32,13 @@ const About = () => {
   };
   return (
     <div id="about">
-      <StyledSection >
-        <div className=" min-[0px]:flex-col flex pb-32 pt-28   lg:flex-row justify-between  "
-        
+      <StyledSection>
+        <div
+          className=" min-[0px]:flex-col flex pb-32 pt-28   lg:flex-row justify-between  "
           onMouseEnter={() => values.setHoveredSection("about")}
-          onMouseLeave={()=> values.setHoveredSection("")}
-        
+          onMouseLeave={() => values.setHoveredSection("")}
         >
-
-          
-          <div className=" lg:max-w-xl   xl:max-w-4xl ">
+          <div className=" lg:max-w-xl   xl:max-w-3xl 2xl:max-w-4xl ">
             {Object.values(aboutParagraphs).map((p, idx) => (
               <p
                 className=" tracking-wider leading-relaxed py-6 text-2xl lg:text-3xl xl:text-[2rem]  lg:leading-snug"
@@ -57,7 +47,7 @@ const About = () => {
                 {p}
               </p>
             ))}
-          </div>  
+          </div>
           <div className=" min-[0px]:w-0  lg:w-[300px] w-[400px]">
             <StyledContainer title="experience">
               {experience.map((item, idx) => (
@@ -76,9 +66,9 @@ const About = () => {
               ))}
             </StyledContainer>
 
-            <StyledContainer title="technology">
+            <StyledContainer title="tools">
               <ul className="    ">
-                {techStack.map((item, idx) => (
+                {tools.map((item, idx) => (
                   <li className=" " key={idx}>
                     <p className=" text-sm xl:text-base">{item}</p>
                   </li>
@@ -89,7 +79,7 @@ const About = () => {
         </div>
       </StyledSection>
 
-      <StyledSection  >
+      <StyledSection>
         <div
           className=" py-28 flex flex-col cursor-auto    "
           onMouseEnter={() => values.setHovered(true)}

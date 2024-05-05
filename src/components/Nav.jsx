@@ -4,10 +4,9 @@ import { TbArrowNarrowRight } from "react-icons/tb";
 import { IoMdArrowDropright } from "react-icons/io";
 import { motion } from "framer-motion";
 import { useState } from "react";
-
 import Link from "next/link";
 
-const Nav = ({ setActive }) => {
+const Nav = () => {
   const [onHover, setHover] = useState(null);
   const [footerHover, setFooterHover] = useState(null);
   const handleItemHover = (i) => {
@@ -16,6 +15,10 @@ const Nav = ({ setActive }) => {
 
   const handleFooterItemsHover = (i) => {
     setFooterHover(i);
+  };
+
+  const handleEmailClick = (link) => {
+    window.location.href = `mailto:${link}`;
   };
   const perspective = {
     initial: {
@@ -175,6 +178,9 @@ const Nav = ({ setActive }) => {
               key={idx}
             >
               <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={idx === 3 ? `mailto:${item.link}` : item.link}
                 className=" cursor-pointer flex items-center w-fit  "
                 onMouseEnter={() => handleFooterItemsHover(idx)}
                 onMouseLeave={() => handleFooterItemsHover(null)}

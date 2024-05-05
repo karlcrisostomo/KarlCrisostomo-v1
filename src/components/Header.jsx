@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
 
 const Header = () => {
-  const title = [" The Web—Where Creativity ", " Becomes My Playground "];
+  const title = [
+    "karl crisostomo",
+    " The Web—Where Creativity ",
+    " Becomes My Playground ",
+  ];
   const { values } = useMouseContext();
 
   const animateHeader = {
@@ -31,7 +35,7 @@ const Header = () => {
     <section className="  h-screen  relative  flex  flex-col justify-center items-center  tracking-wider text-center  ">
       <motion.div>
         {title.map((text, idx) => (
-          <div className=" overflow-hidden" key={idx}>
+          <div className={` overflow-hidden  ${idx === 2 && "pb-2"}`} key={idx}>
             <motion.p
               custom={idx}
               variants={animateHeader}
@@ -43,7 +47,7 @@ const Header = () => {
               onMouseLeave={() => {
                 values.setHoveredSection("");
               }}
-              className=" min-[0px]:text-4xl min-[0px]:tracking-tight md:text-6xl lg:text-8xl xl:text-[5.5rem] 2xl:text-[5.7] lg:tracking-wider"
+              className={`${ idx === 0 ?" uppercase max-sm:text-sm text-[1.4rem] mb-4" : "max-sm:text-[2.7rem]   max-sm:tracking-tight sm:text-5xl md:text-[3.5rem] lg:text-[4.2rem] xl:text-[5.5rem] 2xl:text-[5.7]"}   sm:text-nowrap  lg:tracking-wider `}
             >
               {text}
             </motion.p>
@@ -62,7 +66,7 @@ const Header = () => {
             ease: [0.33, 1, 0.68, 1],
           },
         }}
-        className="  flex justify-center pt-9 "
+        className="  flex justify-center mt-9"
         onMouseEnter={() => values.setHovered(true)}
         onMouseLeave={() => values.setHovered(false)}
       >
@@ -78,9 +82,9 @@ const Header = () => {
       </motion.div>
 
       <motion.div
-        initial={{ top: 500, opacity: 0 }}
+        initial={{ top: "50vh", opacity: 0 }}
         animate={{
-          top: 700,
+          top: "70vh",
           opacity: 1,
           transition: {
             delay: 0.75,
@@ -119,8 +123,8 @@ const Header = () => {
           }}
           className="  -translate-y-1    "
         >
-          <span className=" w-[12px] h-[2px] block rotate-45  -translate-x-[4px] translate-y-[1px]   bg-white" />
-          <span className=" w-[12px] h-[2px] block   -rotate-45  translate-x-[4px] -translate-y-[1px]      bg-white" />
+          <span className=" w-[12px] h-[2px] block rotate-45  -translate-x-[4px] translate-y-[1px]  bg-white" />
+          <span className=" w-[12px] h-[2px] block  -rotate-45  translate-x-[4px] -translate-y-[1px]     bg-white" />
         </motion.div>
       </motion.div>
     </section>

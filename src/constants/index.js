@@ -21,10 +21,10 @@ export const links = [
 ];
 
 export const footerLinks = [
-  { title: "Facebook", Link: "/" },
-  { title: "Instagram", Link: "/" },
-  { title: "LinkedIn", Link: "/" },
-  { title: "Email", Link: "/" },
+  { title: "Facebook", link: "https://www.facebook.com/karl.crisostomo12" },
+  { title: "Instagram", link: "https://www.instagram.com/karlcrstm/" },
+  { title: "LinkedIn", link: "https://www.linkedin.com/in/karl-michael-crisostomo-078ba1214/" },
+  { title: "Email", link: "karlcrisostomo.dev@gmail.com" },
 ];
 
 export const featuredImages = [
@@ -67,15 +67,12 @@ export const projects = [
   {
     id: "01",
     title: "BOOKFINDR",
-    description: ` BOOKFINDR harnesses the capabilities 
-      of the Google Books API to provide users 
-      with seamless access to a vast repository of literary works 
-      across a wide range of genres and subjects. 
-      Built with the goal of facilitating efficient book discovery and exploration, 
-      BOOKFINDR caters to a diverse audience, including avid readers, students, and casual browsers alike. `,
+    description: `A project-based learning website, BOOKFINDR, harnesses 
+    the capabilities of the Google Books API to provide users with seamless 
+    access to a vast repository of literary works across a wide range of genres and subjects. `,
     image: proj1,
     alt: "BOOKFINDR",
-    techStack: [
+    tools: [
       "JavaScript (ES6+)",
       "Next",
       "Axios",
@@ -98,54 +95,85 @@ export const projects = [
     accessing diverse multimedia content. `,
     image: proj2,
     alt: "PIXELHAVEN",
-    techStack: [
-      "JavaScript (ES6+)",
-      "Next",
-      "Axios",
-      "Framer-Motion",
-      "Tailwindcss",
-    ],
+    tools: ["JavaScript (ES6+)", "Next", "Axios", "Tailwindcss"],
     link: "https://github.com/karlcrisostomo/Pixel-Haven",
     demo: "https://pixel-haven.vercel.app/",
   },
   {
     id: "03",
     title: "PORTFOLI0-01",
+    description: `A first portfolio site built with nextjs and framer-motion  `,
     image: proj3,
     alt: "PORTFOLI0-01",
-    techStack: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
-    link: "https://github.com/karlcrisostomo/Portfolio-01",
-    demo: "https://portfolio-01-beryl.vercel.app/",
+    tools: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
+    link: "https://github.com/karlcrisostomo/KarlCrisostomo-v1.git",
+    demo: "https://karl-crisostomo-v1.vercel.app/",
   },
   {
     id: "04",
     title: "REYNALD DION PORTFOLIO",
+    description: `A portfolio website of a friend co-created by me 
+    added some functionality and adjust some typeface, 
+    font size and web design based on the client's preferences  `,
     image: proj4,
     alt: "REYNALD_DION_PORTFOLIO",
-    techStack: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
+    tools: ["JavaScript (ES6+)", "React", "Tailwindcss"],
     link: "https://github.com/karlcrisostomo/Reynald_dion_portfolio",
     demo: "https://reynald-dion-portfolio.vercel.app/",
   },
   {
     id: "05",
     title: "NOTES WEB-APP",
+    description: ` An experimental CRUD notes web application utilizing localStorage 
+    as its storage and Axios for data fetching."      `,
+    image: proj4,
     image: proj5,
     alt: "NOTES WEB-APP",
-    techStack: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
-    link: "https://github.com/karlcrisostomo/Reynald_dion_portfolio",
-    demo: "https://reynald-dion-portfolio.vercel.app/",
+    tools: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
+    link: "https://github.com/karlcrisostomo/note-webapp.git",
+    demo: "https://note-webapp-pi.vercel.app/",
   },
   {
     id: "06",
     title: "FireFighting Drone - Prototype ",
+    description: `A hardware prototype thesis project for firefighting operations,
+     designed to deploy fire extinguisher balls weighing about 1 kilogram. 
+     This prototype was awarded as the best thesis despite being primarily electronics-based 
+     with minimal programming involved.   `,
     image: proj6,
     alt: "FireFighting Drone (Prototype)",
+    tools: [
+      "C++",
+      "Arduino Circuit Board",
+      "DJI Flight Controller",
+      "Hexacopter - Frame",
+      "Gripper Arms ",
+      "Fire Extinguisher Ball 1kg",
+      "Brushless Motors",
+      "Propellers",
+      "GPS Sensor ",
+    ],
   },
   {
     id: "07",
     title: "Automated Hydroponics Nutrient Solution Control ",
+    description: `A hardware prototype thesis project by a fellow classmate, 
+    which I helped with programming and calibration of sensors. I focused on 
+    developing its logging system to record when and at what time the plants have been watered. 
+    Additionally, I implemented an IoT system to monitor the plant's pH level, water level, 
+    and total dissolved solids (TDS) through smartphones or other devices using the BlynkApp.`,
     image: proj7,
-    alt: "FireFighting Drone (Prototype)",
+    alt: "Automated Hydroponics Nutrient Solution Control",
+    tools: [
+      "C++",
+      "esp32 module",
+      "Arduino Board",
+      "TDS Meter Sensor",
+      "Water Sensor ",
+      "PH level Sensor",
+      "Blynk IoT ",
+    ],
+    link: "https://github.com/karlcrisostomo/Automated-Hydroponics-Nutrient-Solution-Control",
   },
 ];
 
@@ -175,7 +203,7 @@ export const awards = [
   },
 ];
 
-export const techStack = [
+export const tools = [
   "JavaScript (ES6+)",
   "React",
   "Next",

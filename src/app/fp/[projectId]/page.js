@@ -1,9 +1,9 @@
 "use client";
 
-import { projects } from "@/constants";
+import { links, projects } from "@/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react"; 
+import { useEffect, useState } from "react";
 
 import { GoArrowUpRight } from "react-icons/go";
 import { IoCodeOutline } from "react-icons/io5";
@@ -11,12 +11,12 @@ import { GoArrowLeft } from "react-icons/go";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import Loading from "./loading";
+import Loading from "../../loading";
 import { useMouseContext } from "@/context/MouseMoveContext";
 
 const Page = ({ params }) => {
   const project = projects.find((proj) => proj.id === params.projectId);
-  const { title, image, alt, description, techStack, link, demo } = project;
+
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -39,49 +39,51 @@ const Page = ({ params }) => {
       ) : (
         <div className="p-4 z-10   ">
           <RouteBackComponent />
-          <div className="">
+          <div>
             <span>
-              <h1 className="py-10 text-3xl lg:text-5xl">{title}</h1>
+              <h1 className="py-10 text-3xl lg:text-5xl">{project?.title}</h1>
             </span>
           </div>
           <div className="flex flex-col gap-10">
             <Image
-              className="lg:w-full lg:h-[800px] pointer-events-none lg:object-contain"
-               
-            
-              src={image}
-              alt={alt}
+              className=" lg:w-full  pointer-events-none  lg:object-contain"
+              src={project?.image}
+              alt={project?.alt}
             />
 
             <div className="flex-col  flex lg:flex-row justify-between">
-              <div className="lg:w-[800px] pb-12">
-                <span className="py-4 uppercase flex font-bold">
+              <div className="lg:w-[600px] xl:w-[800px] pb-12">
+                <span className=" pb-2 uppercase flex font-bold">
                   Project description
                 </span>
                 <p className="text-justify text-base lg:text-lg">
-                  {description}
+                  {project?.description}
                 </p>
               </div>
 
               <>
                 <ul className="">
                   <span className="uppercase font-bold">Tools</span>
-                  {techStack?.map((stack, i) => (
-                    <li className="pt-1" key={i}>
-                      {stack}
+                  {project?.tools.map((item, idx) => (
+                    <li className="pt-1" key={idx}>
+                      {item}
                     </li>
                   ))}
                 </ul>
               </>
 
-              <div className="flex h-fit items-center gap-5">
-                <LinkButton link={link} title={"source code"}>
-                  <IoCodeOutline size={22} />
-                </LinkButton>
+              <div className=" max-lg:order-first max-lg:justify-end flex h-fit items-center gap-5">
+                {project?.link && (
+                  <LinkButton link={project?.link} title={"source code"}>
+                    <IoCodeOutline size={22} />
+                  </LinkButton>
+                )}
 
-                <LinkButton link={demo} title="live demo">
-                  <GoArrowUpRight size={22} />
-                </LinkButton>
+                {project?.demo && (
+                  <LinkButton link={project?.demo} title="live demo">
+                    <GoArrowUpRight size={22} />
+                  </LinkButton>
+                )}
               </div>
             </div>
           </div>

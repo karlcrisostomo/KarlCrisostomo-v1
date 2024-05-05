@@ -63,7 +63,7 @@ const ImageDragger = ({ containerRef }) => {
 
   return (
     <div
-      className="w-full  mx-auto  relative   h-screen        "
+      className="w-full  mx-auto  relative   h-screen         "
       ref={imgObserver}
     >
       <ul>

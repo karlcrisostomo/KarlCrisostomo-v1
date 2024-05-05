@@ -29,7 +29,11 @@ const Contact = () => {
         id="contact"
         className=" h-screen flex flex-col justify-center items-center"
       >
-        <span className=" text-center text-6xl  sm:text-[6rem] md:text-[7rem] lg:text-[9rem]  uppercase ">
+        <span
+          onMouseEnter={() => values.setHoveredSection(true)}
+          onMouseLeave={() => values.setHoveredSection("")}
+          className=" text-center text-6xl  sm:text-[6rem] md:text-[7rem] lg:text-[9rem]  uppercase "
+        >
           {title.map((text, idx) => (
             <p className={`  ${idx === 1 && "italic"}`} key={idx}>
               {text}
@@ -43,7 +47,7 @@ const Contact = () => {
           className=" font-bold pb-4 cursor-pointer mt-20 "
           onClick={copyToClipboard}
         >
-          <p className=" md:text-base lg:text-lg xl:text-xl">{emailAddress}</p>
+          <p className=" md:text-base lg:text-lg xl:text-xl hover:text-[#CFCCCC]">{emailAddress}</p>
         </span>
         {showNotification && <IslandNotification />}
       </motion.div>

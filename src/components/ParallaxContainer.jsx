@@ -30,7 +30,7 @@ const ParallaxContainer = ({ img, alt, itemNumber, title, idx }) => {
 
   return (
     <div
-      className="relative gap-4 min-[0px]:h-full xl:h-[500px]   text-2xl  md:text-3xl cursor-pointer overflow-hidden  max-lg:flex-col-reverse  flex flex-col justify-center"
+      className="relative gap-4 min-[0px]:h-full xl:h-[500px] text-2xl  md:text-3xl cursor-pointer overflow-hidden  max-lg:flex-col-reverse  flex flex-col justify-center"
       ref={container}
     >
       <div className=" xl:absolute pointer-events-none w-full h-full  lg:p-6 font-bold z-20 top-0 left-0text-white xl:text-gray-900">

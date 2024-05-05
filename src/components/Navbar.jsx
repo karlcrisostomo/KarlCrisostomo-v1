@@ -1,11 +1,10 @@
 "use client";
 
-import { contact } from "@/constants";
 import { useMouseContext } from "@/context/MouseMoveContext";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { AnimatePresence, delay, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { MagneticComponent, MenuButton, Nav } from ".";
 import menuState from "@/utils/menuState";
 
@@ -100,7 +99,7 @@ const Navbar = () => {
           initial="closed"
         >
           <AnimatePresence>
-            {isActive && <Nav setActive={setActive} />}
+            {isActive && <Nav/>}
           </AnimatePresence>
         </motion.div>
         <MenuButton toggleMenu={toggleMenu} isActive={isActive} />
@@ -135,7 +134,10 @@ const Logo = () => {
           )}
 
           <Image
-            className={`z-20 ${isHover && "rotate-[360deg] transition-all duration-500  delay-200" }`}
+            className={`z-20 ${
+              isHover &&
+              "rotate-[360deg] transition-all duration-500  delay-200"
+            }`}
             src="/logo.svg"
             width={40}
             height={80}
