@@ -79,7 +79,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  });
+  }, []);
 
   return (
     <nav className=" h-32    ">
@@ -98,9 +98,7 @@ const Navbar = () => {
           animate={isActive ? (isMobile ? "breakpoint" : "open") : "closed"}
           initial="closed"
         >
-          <AnimatePresence>
-            {isActive && <Nav/>}
-          </AnimatePresence>
+          <AnimatePresence>{isActive && <Nav />}</AnimatePresence>
         </motion.div>
         <MenuButton toggleMenu={toggleMenu} isActive={isActive} />
       </div>
