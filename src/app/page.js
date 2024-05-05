@@ -9,19 +9,30 @@ export default function Home() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handleReadyStateChange = () => {
-      if (document.readyState === "complete") {
-        setLoading(false);
-      }
-    };
-
-    handleReadyStateChange();
-    document.addEventListener("readystatechange", handleReadyStateChange);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
 
     return () => {
-      document.removeEventListener("readystatechange", handleReadyStateChange);
+      clearTimeout(timer);
+      setLoading(true);
     };
   }, []);
+
+  // useEffect(() => {
+  //   const handleReadyStateChange = () => {
+  //     if (document.readyState === "complete") {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   handleReadyStateChange();
+  //   document.addEventListener("readystatechange", handleReadyStateChange);
+
+  //   return () => {
+  //     document.removeEventListener("readystatechange", handleReadyStateChange);
+  //   };
+  // }, []);
 
   return (
     <>
