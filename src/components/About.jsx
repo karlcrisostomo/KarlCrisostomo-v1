@@ -48,7 +48,7 @@ const About = () => {
               </p>
             ))}
           </div>
-          <div className=" min-[0px]:w-0  lg:w-[300px] w-[400px]">
+          <div className=" min-[0px]:w-fit lg:w-[300px] w-[400px]">
             <StyledContainer title="experience">
               {experience.map((item, idx) => (
                 <div key={idx} className="  font-medium">
