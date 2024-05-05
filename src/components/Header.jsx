@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <section className="  h-screen  relative  flex  flex-col justify-center items-center  tracking-wider text-center  ">
+    <section className="  h-screen  relative  flex  max-sm:justify-start  flex-col justify-center items-center  tracking-wider text-center  ">
       <motion.div>
         {title.map((text, idx) => (
           <div className={` overflow-hidden  ${idx === 2 && "pb-2"}`} key={idx}>
@@ -71,7 +71,7 @@ const Header = () => {
         onMouseLeave={() => values.setHovered(false)}
       >
         <a
-          className=" cursor-pointer flex items-center  group  text-sm  w-fit  rounded-lg  p-4 hover:-translate-y-2 transition-all duration-200 border border-white/25 hover:bg-white/10 hover:border-white/45
+          className=" cursor-pointer flex items-center group text-sm  w-fit  rounded-lg  p-4 hover:-translate-y-2 transition-all duration-200 border border-white/25 hover:bg-white/10 hover:border-white/45
                "
         >
           <p className=" group-hover:font-bold">Resume</p>
@@ -84,7 +84,7 @@ const Header = () => {
       <motion.div
         initial={{ top: "50vh", opacity: 0 }}
         animate={{
-          top: "70vh",
+          top: "60vh",
           opacity: 1,
           transition: {
             delay: 0.75,
