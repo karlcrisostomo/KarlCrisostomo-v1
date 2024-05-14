@@ -49,7 +49,7 @@ const Loading = ({ setLoading }) => {
       opacity: 0,
 
       transition: {
-        duration: 0.75 ,
+        duration: 0.75,
       },
     },
   };
@@ -60,21 +60,23 @@ const Loading = ({ setLoading }) => {
       initial="initial"
       animate="enter"
       exit="exit"
-      className=" z-[9999]   pointer-events-none  w-full font-light top-0 left-0 bg-black  absolute  flex justify-center items-center h-full   "
     >
-      {loaderText.split("").map((char, idx) => (
-        <motion.p
-          variants={loadingAnim}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          className="  text-base px-1"
-          key={idx}
-          custom={idx}
-        >
-          {char}
-        </motion.p>
-      ))}
+      <div className="bg" />
+      <div className=" z-50 pointer-events-none flex justify-center w-full top-0 left-0 h-full absolute items-center text-sm min-[2560px]:text-2xl">
+        {loaderText.split("").map((char, idx) => (
+          <motion.p
+            variants={loadingAnim}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            className="max-[2000px]:text-base min-[2000px]:text-2xl px-1"
+            key={idx}
+            custom={idx}
+          >
+            {char}
+          </motion.p>
+        ))}
+      </div>
     </motion.div>
   );
 };

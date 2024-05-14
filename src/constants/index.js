@@ -11,6 +11,10 @@ import {
   proj5,
   proj6,
   proj7,
+  corpoAttire,
+  corpoAttireBlack,
+  featuredImg6,
+  featuredImg7,
 } from "../../public/assets";
 
 import { pet1, pet2, pet3, pet4 } from "../../public/assets/myPets";
@@ -23,7 +27,10 @@ export const links = [
 export const footerLinks = [
   { title: "Facebook", link: "https://www.facebook.com/karl.crisostomo12" },
   { title: "Instagram", link: "https://www.instagram.com/karlcrstm/" },
-  { title: "LinkedIn", link: "https://www.linkedin.com/in/karl-michael-crisostomo-078ba1214/" },
+  {
+    title: "LinkedIn",
+    link: "https://www.linkedin.com/in/karl-michael-crisostomo-078ba1214/",
+  },
   { title: "Email", link: "karlcrisostomo.dev@gmail.com" },
 ];
 
@@ -35,31 +42,30 @@ export const featuredImages = [
     { title: "kitty.jpg", src: pet4, alt: "pet 4" },
   ],
   [
-    { src: featuredImg1, alt: "group of friends pic 1" },
-    { src: featuredImg2, alt: "group of friends pic 2" },
-    { src: featuredImg3, alt: "group of friends pic 3" },
+    { title: "group_pic_1.jpg", src: featuredImg2, alt: "group picture 1" },
+    { title: "group_pic_2.jpg", src: featuredImg1, alt: "group picture 2" },
+    { title: "group_pic_3.jpg", src: featuredImg3, alt: "group picture 3" },
   ],
   [
-    { src: featuredImg4, alt: "Thesis Group pic 1" },
-    { src: featuredImg5, alt: "Thesis Group pic 2" },
+    { title: "flight_test_ff.jpg", src: featuredImg4, alt: "Thesis Group pic 1" },
+    { title: "group_pic.jpg", src: featuredImg5, alt: "Thesis Group pic 2" },
   ],
   [
-    { title: "max.jpg", src: pet1, alt: "pet 1" },
-    { title: "kelly.jpg", src: pet2, alt: "pet 2" },
-    { title: "enzo.jpg", src: pet3, alt: "pet 3" },
-    { title: "kitty.jpg", src: pet4, alt: "pet 4" },
+    {
+      title: "corporate_attire_picture.jpg",
+      src: corpoAttire,
+      alt: "profile picture",
+    },
+    {
+      title: "corporate_attire_picture_black_n_white.jpg",
+      src: corpoAttireBlack,
+      alt: " black & white profile picture",
+    },
   ],
+
   [
-    { title: "max.jpg", src: pet1, alt: "pet 1" },
-    { title: "kelly.jpg", src: pet2, alt: "pet 2" },
-    { title: "enzo.jpg", src: pet3, alt: "pet 3" },
-    { title: "kitty.jpg", src: pet4, alt: "pet 4" },
-  ],
-  [
-    { title: "max.jpg", src: pet1, alt: "pet 1" },
-    { title: "kelly.jpg", src: pet2, alt: "pet 2" },
-    { title: "enzo.jpg", src: pet3, alt: "pet 3" },
-    { title: "kitty.jpg", src: pet4, alt: "pet 4" },
+    { title: "museum.jpg", src: featuredImg7, alt: "pet 1" },
+    { title: "random_ferris_wheel.jpg", src: featuredImg6, alt: "pet 2" },
   ],
 ];
 
@@ -67,9 +73,8 @@ export const projects = [
   {
     id: "01",
     title: "BOOKFINDR",
-    description: `A project-based learning website, BOOKFINDR, harnesses 
-    the capabilities of the Google Books API to provide users with seamless 
-    access to a vast repository of literary works across a wide range of genres and subjects. `,
+    description: `A project-based learning website, BOOKFINDR leverages the Google Books API 
+    to provide users with seamless access to a vast collection of literary works across various genres.`,
     image: proj1,
     alt: "BOOKFINDR",
     tools: [
@@ -86,13 +91,9 @@ export const projects = [
   {
     id: "02",
     title: "PIXELHAVEN",
-    description: `PixelHaven is a dynamic web application 
-    built with Next.js, inspired by the functionality of the 
-    popular stock image website Pexels. Leveraging the Pexels API, 
-    PixelHaven provides users with the ability to seamlessly search 
-    for high-quality photos and videos. With a sleek interface and efficient 
-    search functionality, PixelHaven offers a user-friendly experience for 
-    accessing diverse multimedia content. `,
+    description: `Built a free stock image website inspired by Pexels and Unsplash. 
+    Integrated the Pexels API to enable users to search and download high-quality photos 
+    and videos through various filters and categories.`,
     image: proj2,
     alt: "PIXELHAVEN",
     tools: ["JavaScript (ES6+)", "Next", "Axios", "Tailwindcss"],
@@ -102,7 +103,9 @@ export const projects = [
   {
     id: "03",
     title: "PORTFOLI0-01",
-    description: `A first portfolio site built with nextjs and framer-motion  `,
+    description: `Designed and developed a personal portfolio website showcasing my skills and projects. 
+    Implemented interactive elements and a visually striking layout inspired by Awwwards' best design trends.
+      `,
     image: proj3,
     alt: "PORTFOLI0-01",
     tools: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
@@ -112,9 +115,8 @@ export const projects = [
   {
     id: "04",
     title: "REYNALD DION PORTFOLIO",
-    description: `A portfolio website of a friend co-created by me 
-    added some functionality and adjust some typeface, 
-    font size and web design based on the client's preferences  `,
+    description: `Developed a portfolio website for a 
+    friend as part of a project-based learning experience.  `,
     image: proj4,
     alt: "REYNALD_DION_PORTFOLIO",
     tools: ["JavaScript (ES6+)", "React", "Tailwindcss"],
@@ -123,12 +125,12 @@ export const projects = [
   },
   {
     id: "05",
-    title: "NOTES WEB-APP",
-    description: ` An experimental CRUD notes web application utilizing localStorage 
-    as its storage and Axios for data fetching."      `,
+    title: "NOTES WEBSITE",
+    description: `Developed a CRUD website as project-based learning, managing Notes 
+    and utilizing local storage for data persistence."      `,
     image: proj4,
     image: proj5,
-    alt: "NOTES WEB-APP",
+    alt: "NOTES",
     tools: ["JavaScript (ES6+)", "Next", "Framer-Motion", "Tailwindcss"],
     link: "https://github.com/karlcrisostomo/note-webapp.git",
     demo: "https://note-webapp-pi.vercel.app/",
@@ -158,7 +160,7 @@ export const projects = [
     id: "07",
     title: "Automated Hydroponics Nutrient Solution Control ",
     description: `A hardware prototype thesis project by a fellow classmate, 
-    which I helped with programming and calibration of sensors. I focused on 
+    which I assisted with programming and calibration of sensors. I focused on 
     developing its logging system to record when and at what time the plants have been watered. 
     Additionally, I implemented an IoT system to monitor the plant's pH level, water level, 
     and total dissolved solids (TDS) through smartphones or other devices using the BlynkApp.`,
@@ -213,11 +215,3 @@ export const tools = [
   "Framer Motion",
 ];
 
-export const letters = {
-  p1: `
-    i am atually good web developer and i have created almsot 100 websites basically i am god of web development
-    no one can surpass me even elon musk i am too much for web dev might try AI soon
-  `,
-  p2: `i am actually pathetic web developer i created shit web apps i am just a front end guy who could not even
-   develope a simple crud webapp without using chatgpt`,
-};

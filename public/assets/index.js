@@ -10,3 +10,7 @@ export { default as featuredImg2 } from "./featuredImg2.png";
 export { default as featuredImg3 } from "./featuredImg3.png";
 export { default as featuredImg4 } from "./featuredImg4.png";
 export { default as featuredImg5 } from "./featuredImg5.png";
+export { default as corpoAttire } from "./corpo_attire.png";
+export { default as corpoAttireBlack } from "./corpo_attire_black.png";
+export { default as featuredImg6 } from "./featuredImg6.png";
+export { default as featuredImg7 } from "./featuredImg7.png";
