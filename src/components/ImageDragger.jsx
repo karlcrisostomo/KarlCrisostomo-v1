@@ -6,12 +6,13 @@ import Image from "next/image";
 import { featuredImages } from "@/constants";
 import { MdOutlineCancel } from "react-icons/md";
 
-const ImageDragger = ({ containerRef }) => {
+const ImageDragger = () => {
   const imgObserver = useRef(null);
   const isInView = useInView(imgObserver, { once: true });
   const [currentImageIndices, setCurrentImageIndices] = useState(
     featuredImages.map(() => 0)
   );
+
 
   const imagePositions = [
     { top: "15vh", left: "" },
@@ -92,6 +93,7 @@ const ImageDragger = ({ containerRef }) => {
                 src={item[currentImageIndices[idx]].src}
                 alt={item[currentImageIndices[idx]].alt}
                 priority
+                placeholder="blur"
               />
             </motion.li>
           ))}
