@@ -57,7 +57,7 @@ export const featuredImages = [
       alt: "profile picture",
     },
     {
-      title: "corporate_attire_picture_black_n_white.jpg",
+      title: "black_n_white.jpg",
       src: corpoAttireBlack,
       alt: " black & white profile picture",
     },
