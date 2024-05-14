@@ -55,14 +55,15 @@ const Loading = ({ setLoading }) => {
   };
 
   return (
-    <motion.div
-      variants={container}
-      initial="initial"
-      animate="enter"
-      exit="exit"
-    >
+    <>
       <div className="bg" />
-      <div className=" z-50 pointer-events-none flex justify-center w-full top-0 left-0 h-full absolute items-center text-sm min-[2560px]:text-2xl">
+      <motion.div
+        variants={container}
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className=" z-50 pointer-events-none flex justify-center w-full top-0 left-0 h-full absolute items-center text-sm min-[2560px]:text-2xl"
+      >
         {loaderText.split("").map((char, idx) => (
           <motion.p
             variants={loadingAnim}
@@ -76,8 +77,8 @@ const Loading = ({ setLoading }) => {
             {char}
           </motion.p>
         ))}
-      </div>
-    </motion.div>
+      </motion.div>
+    </>
   );
 };
 
