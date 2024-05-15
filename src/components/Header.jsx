@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
 
 const Header = () => {
+  const resume = "/Resume.pdf";
+
+  const handleOpenResume = () => {
+    window.open(resume, "_blank");
+  };
   const title = [
     "karl crisostomo",
     " The Web—Where Creativity ",
@@ -47,7 +52,11 @@ const Header = () => {
               onMouseLeave={() => {
                 values.setHoveredSection("");
               }}
-              className={`${ idx === 0 ?" uppercase max-sm:text-sm text-[1.4rem] mb-4" : "max-sm:text-[2.7rem]   max-sm:tracking-tight sm:text-5xl md:text-[3.5rem] lg:text-[4.2rem] xl:text-[5.5rem] 2xl:text-[5.7]"}   sm:text-nowrap  lg:tracking-wider `}
+              className={`${
+                idx === 0
+                  ? " uppercase max-sm:text-sm text-[1.4rem] mb-4"
+                  : "max-sm:text-[2.7rem]   max-sm:tracking-tight sm:text-5xl md:text-[3.5rem] lg:text-[4.2rem] xl:text-[5.5rem] 2xl:text-[5.7]"
+              }   sm:text-nowrap  lg:tracking-wider `}
             >
               {text}
             </motion.p>
@@ -70,7 +79,8 @@ const Header = () => {
         onMouseEnter={() => values.setHovered(true)}
         onMouseLeave={() => values.setHovered(false)}
       >
-        <a
+        <div
+          onClick={handleOpenResume}
           className=" cursor-pointer flex items-center group text-sm  w-fit  rounded-lg  p-4 hover:-translate-y-2 transition-all duration-200 border border-white/25 hover:bg-white/10 hover:border-white/45
                "
         >
@@ -78,7 +88,7 @@ const Header = () => {
           <span className="  group-hover:-translate-y-1 group-hover:translate-x-1 translate-x-0 duration-300">
             <GoArrowUpRight size={22} />
           </span>
-        </a>
+        </div>
       </motion.div>
 
       <motion.div
