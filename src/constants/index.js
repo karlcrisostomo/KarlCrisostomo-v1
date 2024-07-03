@@ -15,6 +15,7 @@ import {
   corpoAttireBlack,
   featuredImg6,
   featuredImg7,
+  proj8,
 } from "../../public/assets";
 
 import { pet1, pet2, pet3, pet4 } from "../../public/assets/myPets";
@@ -125,10 +126,9 @@ export const projects = [
   },
   {
     id: "05",
-    title: "NOTES WEBSITE",
+    title: "NOTES Management",
     description: `Developed a CRUD website as project-based learning, managing Notes 
     and utilizing local storage for data persistence.`,
-    image: proj4,
     image: proj5,
     alt: "NOTES",
     tools: ["JavaScript (ES6+)", "Next", "Tailwindcss"],
@@ -137,6 +137,17 @@ export const projects = [
   },
   {
     id: "06",
+    title: "Menu Management",
+    description: `Developed a user-friendly menu CRUD website using Firebase Realtime database for easy management of 
+                  menu items.`,
+    image: proj8,
+    alt: "Menu Management",
+    tools: ["JavaScript (ES6+)", "Next", "Tailwindcss, Firebase Realtime Database"],
+    link: "https://github.com/karlcrisostomo/crud-menu.git",
+    demo: "https://crud-menu.vercel.app/",
+  },
+  {
+    id: "07",
     title: "FireFighting Drone - Prototype ",
     description: `A hardware prototype thesis project for firefighting operations,
      designed to deploy fire extinguisher balls weighing about 1 kilogram. 
@@ -157,7 +168,7 @@ export const projects = [
     ],
   },
   {
-    id: "07",
+    id: "08",
     title: "Automated Hydroponics Nutrient Solution Control ",
     description: `A hardware prototype thesis project by a fellow classmate, 
     which I assisted with programming and calibration of sensors. I focused on 

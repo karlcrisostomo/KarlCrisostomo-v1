@@ -5,6 +5,7 @@ export { default as proj4 } from "./proj4.png";
 export { default as proj5 } from "./proj5.png";
 export { default as proj6 } from "./proj6.png";
 export { default as proj7 } from "./proj7.png";
+export { default as proj8 } from "./proj8.png";
 export { default as featuredImg1 } from "./featuredImg1.png";
 export { default as featuredImg2 } from "./featuredImg2.png";
 export { default as featuredImg3 } from "./featuredImg3.png";
