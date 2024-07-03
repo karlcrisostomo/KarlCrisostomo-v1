@@ -48,7 +48,11 @@ export const featuredImages = [
     { title: "group_pic_3.jpg", src: featuredImg3, alt: "group picture 3" },
   ],
   [
-    { title: "flight_test_ff.jpg", src: featuredImg4, alt: "Thesis Group pic 1" },
+    {
+      title: "flight_test_ff.jpg",
+      src: featuredImg4,
+      alt: "Thesis Group pic 1",
+    },
     { title: "group_pic.jpg", src: featuredImg5, alt: "Thesis Group pic 2" },
   ],
   [
@@ -142,7 +146,11 @@ export const projects = [
                   menu items.`,
     image: proj8,
     alt: "Menu Management",
-    tools: ["JavaScript (ES6+)", "Next", "Tailwindcss, Firebase Realtime Database"],
+    tools: [
+      "JavaScript (ES6+)",
+      "Next",
+      "Tailwindcss, Firebase Realtime Database",
+    ],
     link: "https://github.com/karlcrisostomo/crud-menu.git",
     demo: "https://crud-menu.vercel.app/",
   },
@@ -222,7 +230,9 @@ export const tools = [
   "Next",
   "Axios",
   "Tailwindcss",
+  "MongoDB",
+  "Firebase",
+  "AJAX",
   "Figma",
   "Framer Motion",
 ];
-
