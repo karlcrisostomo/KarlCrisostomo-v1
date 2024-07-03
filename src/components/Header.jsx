@@ -11,7 +11,6 @@ const Header = () => {
     window.open(resume, "_blank");
   };
   const title = [
-    "karl crisostomo",
     " The Web—Where Creativity ",
     " Becomes My Playground ",
   ];
@@ -40,7 +39,7 @@ const Header = () => {
     <section className="  h-screen  relative  flex  max-sm:justify-start  flex-col justify-center items-center  tracking-wider text-center  ">
       <motion.div>
         {title.map((text, idx) => (
-          <div className={` overflow-hidden  ${idx === 2 && "pb-2"}`} key={idx}>
+          <div className={` overflow-hidden  ${idx === 1 && "pb-2"}`} key={idx}>
             <motion.p
               custom={idx}
               variants={animateHeader}
@@ -52,11 +51,7 @@ const Header = () => {
               onMouseLeave={() => {
                 values.setHoveredSection("");
               }}
-              className={`${
-                idx === 0
-                  ? " uppercase max-sm:text-sm text-[1.4rem] mb-4"
-                  : "max-sm:text-[2.7rem]   max-sm:tracking-tight sm:text-5xl md:text-[3.5rem] lg:text-[4.2rem] xl:text-[5.5rem] 2xl:text-[5.7]"
-              }   sm:text-nowrap  lg:tracking-wider `}
+              className="max-sm:text-[2.7rem] max-sm:tracking-tight sm:text-5xl md:text-[3.5rem] lg:text-[4.2rem] xl:text-[5.5rem] 2xl:text-[5.7] sm:text-nowrap  lg:tracking-wider "  
             >
               {text}
             </motion.p>

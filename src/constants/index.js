@@ -199,15 +199,22 @@ export const projects = [
 ];
 
 export const aboutParagraphs = {
+
+
   p1: `
-  I enjoy building things related to web development. 
-  My interest in web development started when I was building an IoT (Internet of Things) 
-  web-based project for my Arduino temperature monitor. 
-    
+  Hey there! I’m Karl Michael Crisostomo, a recent Computer Engineering graduate with a 
+  passion for front-end development and a 
+  solid foundation in software design, development, 
+  and embedded systems.
   `,
   p2: `
-  Today, my focus lies in front-end development, 
-  where I am dedicated to crafting responsive websites that elevate user experience.`,
+  My journey into web development began with an exciting project where I created a web-based 
+  IoT solution for monitoring temperature using Arduino. 
+  This experience sparked my enthusiasm for crafting innovative web applications.    
+  `,
+  p3: `
+  Now, I’m diving deep into the world of front-end development, where I focus on building dynamic, 
+  responsive websites that not only look great but also offer exceptional user experiences. `,
 };
 
 export const experience = [
